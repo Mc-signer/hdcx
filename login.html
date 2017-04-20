@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="">
+    <meta charset="utf-8" />
+    <title>华北电力大学大学生创新网</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src='js/jquery-1.9.1.min.js'></script>
+</head>
+
+<body onkeydown="keyLogin();">
+    <div id="register-model" >
+        <div id="register-model-content" style="display:none;">
+            <p>正在发送邮箱验证信息</p>
+            <p>请勿关闭此页面</p>
+        </div>
+    </div>
+    <img src="img/loginBackground.png" class="background-img">
+    <div class="login col-md-8">
+        <div class="login-left col-md-6">
+            <img src="img/school.png" class="login-left-logo col-md-2">
+            <div class="login-left-div col-md-8">
+                <div class="login-left-text col-md-12">
+                    <p>你的点子</p>
+                    <p>或许能颠覆整个世界</p>
+                </div>
+                <img src="img/light.png" class="col-md-12 login-left-background">
+            </div>
+        </div>
+        <div class="login-right col-md-6">
+            <div class="login-right-head col-md-12">
+                <button class="btn btn-primary btn-sm login-right-head-right col-md-1" id="regButton1" onclick="register()">注册</button>
+                <button class="btn btn-primary btn-sm login-right-head-left login-right-head-choose col-md-1" id="logButton1" onclick="login()" >登录</button>
+            </div>
+            <div class="login-right-window col-md-10">
+                <div class="login-right-window-top col-md-12">
+                    <a class="login-right-window-top-choose" id="logButton2" onclick="login()" style="cursor:pointer;">登录</a>
+                    <span>or</span>
+                    <a href="javascript:return false" class="" id="regButton2" onclick="register()">注册</a>
+                </div>
+                <!-- 登录 -->
+                <form role="form" style="" id="login">
+                    <div class="login-right-window-box col-md-12">
+                        <input type="hidden" name="key" value="login">
+                        <div class="form-group">
+                            <label for="name">用户名</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="输入您的用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="label-password">密码</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="输入您的密码">
+                        </div>
+                        <div class="form-group" style="margin-top:48px;">
+                            <button type="button" class="btn btn-primary col-md-4" id="loginButton">登录</button>
+                            <a href="forgetPassword.html">忘记密码了？</a>
+                        </div>
+                    </div>
+                </form>
+                <!-- 注册 -->
+                <form role="form" id="register" style="display: none;">
+                    <div class="login-right-window-box right-box-register-add col-md-12">
+                        <div class="form-group" style="margin-bottom: 5px;">
+                            <label for="name" style="margin-bottom: 0;">用户名</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="输入您的用户名" style="">
+                        </div>
+                        <div class="form-group" style="margin-top:5px; margin-bottom: 5px;">
+                            <label for="password" class="label-password">密码</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="输入您的密码">
+                        </div>
+                        <div class="form-group" style="margin-top:5px; margin-bottom: 5px;">
+                            <label for="contact">联系方式</label>
+                            <input type="text" class="form-control" name="contact" id="contact" placeholder="输入您的联系方式">
+                        </div>
+                        <div class="form-group" style="margin-top:5px; margin-bottom: 0;">
+                            <label for="email">E-mail</label>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="输入您的E-mail">
+                        </div>
+                        <div class="form-group" style="margin-top:px;">
+                            <button type="button" class="btn btn-primary col-md-4" id="registerButton">注册</button>
+                            <a href="">我已经有账号了</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/login.js"></script>
+</body>
+
+</html>

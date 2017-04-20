@@ -1,0 +1,182 @@
+/* 顶部的装饰图案 */
+
+.main-right-head {
+    margin: -20px 0 0 100px;
+    padding: 0;
+    height: 50px;
+    width: 550px;
+}
+
+.main-right-head-cancle {
+    font-size: 1.2em;
+    width: 80px;
+    height: 50px;
+    border-right: 2px solid #0061AA;
+    border-bottom: 2px solid #0061AA;
+    margin-left: -80px;
+}
+
+.main-right-head-cancle a {
+    position: relative;
+    top: 13px;
+    left: 19px;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+}
+
+.main-right-head-matchName {
+    width: 100px;
+    height: 170px;
+    border-right: 2px solid #0061AA;
+    margin: 0 0 -400px -100px;
+}
+
+.main-right-head-sectionName {
+    width: 15px;
+    height: 200px;
+    position: absolute;
+    left: 17px;
+    top: 63px;
+    font-size: 1.2em;
+}
+
+.main-right-head-matchName-text {
+    width: 35px;
+    position: relative;
+    left: 55px;
+    top: 15px;
+    font-size: 1.8em;
+    line-height: 25px;
+}
+
+.main-right-head-commonBottom {
+    height: 2px;
+    background: #0061AA;
+    width: 90px;
+    position: absolute;
+    bottom: 0;
+}
+
+.main-right-head-circlePoint {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0062AC;
+    position: absolute;
+    bottom: -2px;
+}
+
+.main-right-head-string {
+    width: 1px;
+    height: 10px;
+    position: absolute;
+    background: #1C71B3;
+    left: 2px;
+}
+
+.main-right-head-box {
+    width: 60px;
+    height: 20px;
+    position: absolute;
+    left: -29px;
+}
+
+.topString {
+    bottom: 5px;
+}
+
+.topBox {
+    bottom: 15px;
+}
+
+.bottomString {
+    top: 5px;
+}
+
+.bottomBox {
+    top: 15px;
+}
+
+.lastBox {
+    width: 60px;
+    height: 20px;
+    position: absolute;
+    top: -9px;
+    left: 6px;
+}
+
+.beGrey {
+    color: #A9A9A9;
+    background: #A9A9A9;
+}
+
+
+/* 基本信息 */
+
+.main-right-basicInformation {
+    margin: 80px 0 0 230px;
+}
+
+.table th,
+.table td {
+    padding: 0;
+}
+
+.step {
+    text-align: right;
+}
+
+.step img {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* 成员列表 */
+
+.main-right-memberList {
+    margin: 70px 0 0 170px;
+    display:none;
+    width:880px;
+}
+
+.table-define caption {
+    font-size: 1.5em;
+    color: black;
+}
+
+.table-define tbody tr {
+    padding: 5px 0;
+}
+.table-define tbody td {
+    height: 30px;
+}
+.table-define td button {
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.table-define img {
+    width: 12px;
+    height: 12px;
+}
+
+.registration-add {
+    height: 36px;
+    width: 90px;
+}
+
+.registration-add img {
+    width: 25px;
+    height: 25px;
+}
+
+
+/* 附件上传 */
+
+.main-right-adjunct {
+    display: none;
+    margin-top: 75px;
+    margin-left: 170px;
+}

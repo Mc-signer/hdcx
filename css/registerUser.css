@@ -1,0 +1,20 @@
+
+.user-register-title{
+	width:112px;
+margin-left: 150px;
+}
+.user-register-text{
+	margin-left: -27px;
+	margin-top: 7px;
+}
+.register-label div{
+	text-align: right;
+	padding:3px 0;
+}
+.register-content div{
+	text-align:center;
+	padding: 3px 0;
+}
+.register-button button{
+	margin:2px 0;
+}

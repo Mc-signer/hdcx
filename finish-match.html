@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="">
+    <meta charset="utf-8" />
+    <title>华北电力大学大学生创新网</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/admin-match.css">
+    <link rel="stylesheet" type="text/css" href="dist/flatpickr.min.css">
+    <script src='js/jquery-1.9.1.min.js'></script>
+</head>
+
+<body>
+    <img src="img/indexBackground.png" class="index-background col-md-12">
+    <div class="index-top col-md-12">
+        <img src="img/indexTitle.png" class="col-md-5">
+    </div>
+    <div class="index-user col-md-12">
+        <div class="index-user-logout"><img src="sign/indexLogout.png"><a href="" onclick="logout();">退出<a></div>
+    <div class="index-user-name"><img src="sign/indexAdmin.png"><a href="admin-view.html"></a></div>
+    </div>
+    <div class="col-md-12 main">
+        <!-- 标题 -->
+
+        <div class="col-md-12 main-admin-match-title">
+            <div class="col-md-5 main-admin-match-title-contain">
+                <!-- 左边 -->
+                <div class="contain-left">
+                    <a href="admin-view.html"><img src="img/arrow.png" alt=""></a>
+                </div>
+                <!-- 左下 -->
+                <div class="contain-leftBottom"></div>
+                <!-- 右上 -->
+                <div class="col-md-11 contain-text">
+                    <div class="col-md-7 contain-text-title main-right-match-title-text" ondblclick="" data="a"></div>
+                    <div class="col-md-2 contain-text-jiezhi" style="font-size: 1em;">截止时间：</div>
+                    <div class="col-md-3 contain-text-time" style="font-size: 1em;">
+                        <input type=text  value="" readonly="readonly" id="timeInput">
+                    </div>
+                </div>
+                <!-- 右下 -->
+                <div class="col-md-12 contain-bottom">
+                    <div class=" detail-body-now" ondblclick="" data="c">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 报名队伍 -->
+        <div class="col-md-9 main-admin-match-team">
+            <div class="col-md-2 main-admin-match-team-title main-right-match-title-text">报名队伍:</div>
+            <div class="col-md-8 main-admin-match-team-content">
+            </div>
+        </div>
+        <div class="col-md-1" id="chenggan"></div>
+    </div>
+    <!-- 版权说明 -->
+    <footer class="col-md-12">
+        Copyright © 2006-2017 <strong><a href="协会首页\index.html" target="_blank">网络管理协会 NMC</a></strong> All Rights Reserved. <img src="img/loginBackground.png" class="col-md-2 background-img">
+    </footer>
+    <script src="dist/flatpickr.js"></script>
+    <script src="js/finish-match.js"></script>
+    <script src='bootstrap/js/bootstrap.js'></script>
+    <script src="js/admin-check.js"></script>
+</body>
+
+</html>

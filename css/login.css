@@ -1,0 +1,271 @@
+body {
+    background: #d9d9d9;
+}
+
+#register-model {
+    display:none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 300 !important;
+}
+
+#register-model p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    letter-spacing: 3px;
+}
+
+#register-model div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* 背景图片标志 */
+
+.background-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+/*登录界面的主体部分*/
+
+.login {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background: -webkit-linear-gradient(45deg, #263345, #333f51);
+    background: -o-linear-gradient(45deg, #263345, #333f51);
+    background: -moz-linear-gradient(45deg, #263345, #333f51);
+    background: linear-gradient(45deg, #263345, #333f51);
+    border: 2px solid black;
+}
+
+.login-left {
+    height: 100%;
+    margin-left: -15px;
+    margin-right: 15px;
+    background: -webkit-linear-gradient(45deg, #0061aa, #2ea5ff);
+    background: -o-linear-gradient(45deg, #0061aa, #2ea5ff);
+    background: -moz-linear-gradient(45deg, #0061aa, #2ea5ff);
+    background: linear-gradient(45deg, #0061aa, #2ea5ff);
+    -webkit-border-radius: 15px 0 0 15px;
+    -moz-border-radius: 15px 0 0 15px;
+    border-radius: 15px 0 0 15px;
+    border-right: 2px solid #185786;
+}
+
+.login-right {
+    height: 100%;
+    border: 2px;
+}
+
+.login-left-logo {
+    position: absolute;
+    top: 5px;
+    margin-left: -25px;
+}
+
+.login-left-div {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-left-text {
+    margin-top: 30px;
+    margin-bottom: -50px;
+    font-size: 1.2em
+}
+
+.login-left-text p {
+    margin: 0 0 15px;
+    letter-spacing: 0.5em;
+    color: white;
+}
+
+.login-left-background {}
+
+.login-right-head {
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+.login-right-head button {
+    float: right;
+    width: 75px;
+    color: #9c9c9c;
+    background: -webkit-linear-gradient(0deg, #48515e, #5a6473);
+    background: -o-linear-gradient(0deg, #48515e, #5a6473);
+    background: -moz-linear-gradient(0deg, #48515e, #5a6473);
+    background: linear-gradient(0deg, #48515e, #5a6473);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: none;
+    outline-style: none;
+}
+
+button.login-right-head-choose {
+    color: white;
+    background: -webkit-linear-gradient(0deg, #006cbd, #0092ff);
+    background: -o-linear-gradient(0deg, #006cbd, #0092ff);
+    background: -moz-linear-gradient(0deg, #006cbd, #0092ff);
+    background: linear-gradient(0deg, #006cbd, #0092ff);
+}
+
+.login-right-head .login-right-head-right {
+    -webkit-border-radius: 0 20px 20px 0;
+    -moz-border-radius: 0 20px 20px 0;
+    border-radius: 0 20px 20px 0;
+}
+
+.login-right-head .login-right-head-left {
+    -webkit-border-radius: 20px 0 0 20px;
+    -moz-border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 20px;
+}
+
+.login-right-window {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-right-window-top {
+    color: #5d5e5e;
+    font-size: 1.5em;
+}
+
+.login-right-window-top a {
+    padding-left: 0.3em;
+    padding-bottom: 0.2em;
+    font-size: 1.6em;
+    color: #53565a;
+    text-decoration: none;
+    letter-spacing: 0.3em;
+}
+
+.login-right-window-top a:first-child {
+    margin-right: 0.3em;
+}
+
+.login-right-window-top a:last-child {
+    margin-left: 0.3em;
+}
+
+a.login-right-window-top-choose {
+    color: white;
+    border-bottom: 1px solid #005899;
+}
+
+.login-right-window-box {
+    margin-top: 60px;
+}
+
+.login-right-window-box label {
+    font-size: 1.5em;
+    font-weight: 100;
+    color: white;
+    letter-spacing: 0.3em;
+    line-height: 2em;
+}
+
+.login-right-window-box .label-password {
+    letter-spacing: 1.6em;
+}
+
+.login-right-window-box .form-group:not(:first-child) {
+    margin-top: 30px;
+}
+
+.login-right-window-box input {
+    padding-left: 0;
+    border: 0;
+    color: white;
+    border-bottom: 1px solid #53565a;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: 0 0;
+}
+
+.login-right-window-box input:focus {
+    outline: none;
+    box-shadow: 0 0;
+    border-radius: 0;
+}
+
+.login-right-window-box input::-webkit-input-placeholder {
+    color: #53565a;
+    letter-spacing: 0.3em;
+}
+
+.login-right-window-box input:-moz-placeholder {
+    color: #53565a;
+    letter-spacing: 0.3em;
+}
+
+.login-right-window-box input::-moz-placeholder {
+    color: #53565a;
+    letter-spacing: 0.3em;
+}
+
+.login-right-window-box input:-ms-input-placeholder {
+    color: #53565a;
+    letter-spacing: 0.3em;
+}
+
+.login-right-window-box input::input-placeholder {
+    color: #53565a;
+    letter-spacing: 0.3em;
+}
+
+.login-right-window-box button {
+    margin-left: 10px;
+    background: -webkit-linear-gradient(0deg, #006cbd, #0092ff);
+    background: -o-linear-gradient(0deg, #006cbd, #0092ff);
+    background: -moz-linear-gradient(0deg, #006cbd, #0092ff);
+    background: linear-gradient(0deg, #006cbd, #0092ff);
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    border-radius: 32px;
+    border: none;
+    outline-style: none;
+}
+
+.login-right-window-box a {
+    margin-left: 20px;
+    color: #53565a;
+    line-height: 34px;
+}
+
+
+/* 增加的样式 */
+
+.right-box-register-add {
+    margin-top: 30px;
+}
+
+.right-box-register-add label {
+    font-size: 1.1em;
+    line-height: 1.1em;
+}

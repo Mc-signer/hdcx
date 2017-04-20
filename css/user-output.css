@@ -1,0 +1,25 @@
+.basic-content{
+	margin-top: 0: 
+}
+.awardClass{
+	display: none;
+}
+.registration-add {
+    height: 36px;
+    width: 90px;
+}
+
+.registration-add img {
+    width: 25px;
+    height: 25px;
+}
+#members button{
+	    border: none;
+    background: transparent;
+    padding: 0;
+}
+#members img{
+	    width:15px;
+    height:15px;
+}
+}

@@ -1,0 +1,99 @@
+
+ .main-right-match-content-detail{
+ 	padding-left: 15px;
+ 	padding-right: 15px;
+ 	padding-top:0;
+ 	display: none;
+    width:100%;
+ }
+ .admin-title,.admin-label,.admin-content,.admin-button{
+ 	margin: 4px 0;
+ 	padding:0;
+ }
+ .admin-title{
+ 	border-bottom: 1px #BFBFBF solid;
+ 	font-size: 1.8em;
+ 	padding-left: 20px;
+ }
+ .admin-label div{
+ 	padding: 0;
+    text-align: right;
+ }
+ .admin-content div{
+ 	padding: 0;
+ 	text-align: center;
+ }
+ .admin-button img{
+ 	width: 20px;
+    height: 20px;
+    margin: 5px 5px;
+ }
+ .second-button{
+ 	display: none;
+ }
+ /* 添加按钮 */
+ .admin-add{
+ 	margin-top: 50px;
+ }
+ .admin-add-button:hover {
+    background: #EEE;
+    transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    -webkit-transition: background 0.3s;
+    -o-transition: 0.3s;
+}
+
+.admin-add-button {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 4px;
+    background: white;
+    width: 70px;
+    height: 20px;
+    line-height: 12px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.admin-add-button img{
+	width: 18px;
+    height: 18px;
+}
+.admin-modal{
+	display: none;
+    background: rgba(0,0,0,0.5);
+    z-index: 999999998;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: auto;
+}
+.admin-popups{    
+	border-radius: 5px;
+	width: 600px;
+    z-index: 999999999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background:#fff;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
+.header,.content{
+	padding: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.header-title{
+	margin: 0;
+    line-height: 1.42857143;
+}
+
+.admin-footer button{
+margin-right: 10px;
+}

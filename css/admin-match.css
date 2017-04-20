@@ -1,0 +1,64 @@
+.main-right-match-content-detail{
+	display: none;
+}
+/* 标题 */
+.main-admin-match-title-contain{
+	width: ;
+    height: 50px;
+    border-left: 2px solid #0061AA;
+    border-bottom: 2px solid #0061AA;
+    margin-left: 100px;
+}
+.contain-left{
+	left: -50px;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	border-bottom: 2px solid #0061AA;
+}
+.contain-left img{
+	height: 23px;
+	width: 30px;
+	    margin-top: 0.8em;
+    margin-left: 0.5em;
+}
+.contain-leftBottom{
+	left: -50px;
+	bottom:-40px;
+	width: 50px;
+	height: 40px;
+	position: absolute;
+	 border-right: 2px solid #0061AA;
+}
+.contain-bottom{
+	position: absolute;
+	bottom:-40px;
+	height: 40px;
+}
+.contain-text{
+	position: relative;
+	bottom:8px;
+}
+.contain-text-time input{
+	border:none;
+}
+.contain-text-jiezhi,.contain-text-time{
+   font-size: 0.9em;
+    position: relative;
+    top:2.1em;
+}
+.contain-text-jiezhi{
+	width:72px;
+}
+.contain-text div{
+	padding: 0;
+}
+/* 主体 */
+.main-admin-match-team{
+	margin-left: 70px;
+	margin-top: 70px;
+}
+.main-admin-match-team-title{
+	text-align: right;
+	
+}

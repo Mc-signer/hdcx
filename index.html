@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="">
+    <meta charset="utf-8" />
+    <title>华北电力大学大学生创新网</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <img src="img/indexBackground.png" class="index-background col-md-12">
+    
+    <div class="index-top col-md-12">
+        <img src="img/indexTitle.png" class="col-md-5">
+    </div>
+    </div>
+    <div class="index-user col-md-12">
+        <div class="index-user-logout"><img src="sign/indexLogout.png"><a href="" onclick="logout();">退出<a></div>
+    <div class="index-user-name"><img src="sign/indexAdmin.png"><a href="index.html"></a></div>
+    <div id="userId" style="display: none;"> </div>
+    </div>
+    <div class="col-md-12 main">
+        <!-- 左侧的目录 -->
+        <div class="col-md-2 main-left-menu">
+            <div class="col-md-12 main-left-menu-primary">
+                <div><a href="javascript:return false" onclick="oneChoose();oneShow();">比赛信息</a>
+                    <div id="primary-one-choosed" class="choosed"></div>
+                </div>
+                <div><a href="javascript:return false" onclick="twoChoose();twoShow();">账号管理</a>
+                    <div id="primary-two-choosed"></div>
+                </div>
+            </div>
+            <div class="col-md-12 main-left-menu-sub">
+                <a href="javascript:return false" onclick="twoChoose();threeShow();">个人资料</a>
+                <a href="javascript:return false" onclick="twoChoose();fourShow();">修改密码</a>
+                <a href="login.html" onclick="twoChoose();logout();">退出登录</a>
+            </div>
+        </div>
+        <!-- 右侧的主体部分 -->
+        <div class="col-md-10 main-right">
+            <!-- 比赛信息 -->
+            <div class="col-md-12 main-right-match" id="one">
+                <!-- 比赛信息————正在报名 -->
+                <div class="col-md-12 main-right-match-now">
+                    <!-- 比赛信息————正在报名————标题 -->
+                    <div class="col-md-3 main-right-match-title">
+                        <div class="main-right-match-title-text">正在报名</div>
+                        <div class="main-right-match-title-decoration"></div>
+                    </div>
+                    <!-- 比赛信息————正在报名————内容 -->
+                    <div class="col-md-7 main-right-match-content">
+                 <div class="col-md-12 none">最近没有比赛哦~</div>
+                    </div>
+                </div>
+                <!-- 比赛信息————已经报名 -->
+                <div class="col-md-12 main-right-match-finish">
+                    <!-- 比赛信息————已经报名————标题 -->
+                    <div class="col-md-3 main-right-match-title">
+                        <div class="main-right-match-title-text">已经报名</div>
+                        <div class="main-right-match-title-decoration"></div>
+                    </div>
+                    <!-- 比赛信息————已经报名————内容 -->
+                    <div class="col-md-7 main-right-match-content">
+                    <div class="col-md-12 none">没有报名什么比赛哦~</div>
+     
+                    </div>
+                </div>
+            </div>
+            <!-- 账号管理 -->
+            <!-- 账号管理————主界面 -->
+            <div class="col-md-10 main-right-account" style="display:none;" id="two">
+                <div class="col-md-5 main-right-account-contain">
+                    <div class="col-md-6 main-right-account-content">
+                        <a href="javascript:return false" class="col-md-10 main-right-account-content-img" onclick="twoChoose();threeShow();"><img src="img\个人资料.png" alt=""></a>
+                        <div class="col-md-12 main-right-account-content-text">个人资料</div>
+                    </div>
+                    <div class="col-md-6 main-right-account-content">
+                        <a href="javascript:return false" class="col-md-10 main-right-account-content-img" onclick="twoChoose();fourShow();"><img src="img\钥匙.png" alt=""></a>
+                        <div class="col-md-12 main-right-account-content-text">密码管理</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 账号管理————个人资料 -->
+            <div class="col-md-7 main-right-self" style="display:none;" id="three">
+                <div class="col-md-12 main-right-self-title">
+                    <div class="col-md-5 main-right-self-title-text">修改个人信息</div>
+                </div>
+                <div class="col-md-12 main-right-self-body">
+                    <div class="col-md-4 main-right-self-body-left">您可以修改您的联系方式</br>还有您注册时绑定的E-mail</div>
+                    <div class="col-md-8 main-right-self-body-right">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 control-label">用户名：</label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control input-none" id="name" value="AAAAAA" readonly="true">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact" class="col-md-3 control-label">联系方式：</label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control" id="contact" placeholder="请输入联系方式" value="12345678910">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">E-mail：</label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control" id="email" placeholder="请输入邮箱地址" value="123465@qq.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="button" class="col-md-4 btn btn-success" onclick="editUser()">确认</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 账号管理————修改密码 -->
+            <div class="col-md-8 main-right-self" style="display:none;" id="four">
+                <div class="col-md-12 main-right-self-title">
+                    <div class="col-md-5 main-right-self-title-text">修改密码</div>
+                </div>
+                <div class="col-md-12 main-right-self-body">
+                    <div class="col-md-6 main-right-self-body-right">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="oldpassword" class="col-md-4 control-label">旧密码：</label>
+                                <div class="col-md-8">
+                                    <input type="password" class="form-control" id="oldpassword" placeholder="请输入旧密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newpassword" class="col-md-4 control-label">新密码：</label>
+                                <div class="col-md-8">
+                                    <input type="password" class="form-control" id="newpassword" placeholder="请输入新密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="again" class="col-md-4 control-label">重复输入：</label>
+                                <div class="col-md-8">
+                                    <input type="password" class="form-control" id="again" placeholder="请再次输入新密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-8">
+                                    <button type="button" class="col-md-5 btn btn-success" onclick="editPassword()">确认</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6 main-right-self-body-left">请输入您的旧密码</br>在输入您的新密码以及重复输入新密码以确认。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 版权说明 -->
+    <footer class="col-md-12" style="">
+        Copyright © 2006-2017 <strong><a href="协会首页\index.html" target="_blank">网络管理协会 NMC</a></strong> All Rights Reserved.
+        <img src="img/loginBackground.png" class="col-md-2 background-img">
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

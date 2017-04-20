@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="">
+    <meta charset="utf-8" />
+    <title>华北电力大学大学生创新网</title>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+/*	$.ajax({
+        url: "login.html",
+        type: "post",
+        dataType: "html",
+        async: false,
+        success: function(msg) {
+        	console.log(this.getAttribute('content'));
+        },
+        error:function(){
+        }
+    })*/
+  var htmlObj = $.ajax({url:"ab.txt",async:false});//$.ajax() 返回其创建的 XMLHttpRequest 对象
+  htmlObj;
+	</script>
+</head>
+<body>
+<div id="content" class="col-md-12">
+	<div class="form-group">
+		<label for="name">用户名</label>
+		<input type="text" class="form-control" name="name" id="name" placeholder="输入您的用户名">
+	</div>
+	<div class="form-group">
+		<label for="password" class="label-password">密码</label>
+		<input type="password" class="form-control" name="password" id="password" placeholder="输入您的密码">
+	</div>
+	<div class="form-group" style="margin-top:50px;">
+		<button type="submit" class="btn btn-primary col-md-3">登录</button>
+		<a href="">忘记密码了？</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

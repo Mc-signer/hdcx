@@ -1,0 +1,23 @@
+<?php
+$debug=true;
+
+define('EMAIL',"hdtwcxcy@163.com");
+define('EMAIL_PW',"tuanwei0");
+if($debug){
+	define('PATH',"localhost/hdcx/");
+	define('FILEPATH','D:/xampp/htdocs/hdcx/files/');
+	//本地数据库配置
+	define('DB_HOST','127.0.0.1');
+	define('DB_USER','root');
+	define('DB_PW','');
+	define('DB_NAME','hdcx');
+}
+else{
+	define('PATH',"59.67.225.23/creation/");
+	define('FILEPATH','D:/xampp/htdocs/files/');
+	//本地数据库配置
+	define('DB_HOST','127.0.0.1');
+	define('DB_USER','hdtw');
+	define('DB_PW','tuanwei0');
+	define('DB_NAME','hdcx');
+}

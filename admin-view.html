@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<html>
+
+<head lang="">
+    <meta charset="utf-8" />
+    <title>华北电力大学大学生创新网</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/material.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/admin-view.css">
+    <link rel="stylesheet" type="text/css" href="dist/flatpickr.min.css">
+    <script src="js/material.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+    .main-right-match-content-detail {
+        min-height: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="index-top col-md-12">
+        <img src="img/indexTitle.png" class="col-md-5">
+    </div>
+    </div>
+    <div class="index-user col-md-12">
+        <div class="index-user-logout"><img src="sign/indexLogout.png"><a href="" onclick="logout();">退出<a></div>
+    <div class="index-user-name"><img src="sign/indexAdmin.png"><a href="admin-view.html"></a></div>
+    </div>
+    <div class="col-md-12 main">
+        <div class="col-md-12 main-right-match-now">
+            <!-- 正在报名————标题 -->
+            <div class="col-md-3 main-right-match-title ">
+                <div class="main-right-match-title-text">正在报名</div>
+                <div class="main-right-match-title-decoration"></div>
+            </div>
+            <!-- 正在报名————内容 -->
+            <div class="col-md-6 main-right-match-content content-view-add">
+                <div class="jiange">
+                    <div class="col-md-12 none">最近没有比赛哦~</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 main-right-match-finish">
+            <!-- 报名结束————标题 -->
+            <div class="col-md-3 main-right-match-title">
+                <div class="main-right-match-title-text">报名结束</div>
+                <div class="main-right-match-title-decoration"></div>
+            </div>
+            <!-- 报名结束————内容 -->
+            <div class="col-md-6 main-right-match-content content-view-add">
+                <div class="jiange">
+                    <div class="col-md-12 none">最近没有比赛哦~</div>
+                  <!--   <div class="col-md-12 main-right-match-content-detail" id="1">
+                     <div class="col-md-10">
+                         <div class="col-md-12 detail-head">
+                             <div class="col-md-5 detail-head-left">输入比赛名称</div>
+                             <div class="col-md-3 detail-head-middle-now">2016-12-31 23:00:00</div>
+                             <div class="col-md-4 detail-head-right-now">截止日期：2017-01-01 00:00:00</div>
+                         </div>
+                         <div class="col-md-12 detail-body-now">请输入关于比赛的简介</div>
+                     </div>
+                     <div class="col-md-2 three-dots">
+                         <button type="button" class="col-md-offset-3 three-dots-button" onclick="dots(this);"><img src="img/more.png"></button>
+                         <div class="col-md-9 three-dots-option" onclick="dotsOption(this);">删除</div>
+                     </div>
+                     <img src="img/jieshu.png" class="detail-foot-img">
+                     </div>  -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 版权说明 -->
+    <footer class="col-md-12">
+        Copyright © 2006-2017 <strong><a href="协会首页\index.html" target="_blank">网络管理协会 NMC</a></strong> All Rights Reserved.
+    </footer>
+    <!-- 按钮 -->
+    <div class="col-md-5 admin-button-contain">
+        <button class="mdl-button mdl-js-button mdl-button--fab adminbutton" onclick="add();">
+            <img src="img/加号b.png" alt="" class="button-add">
+        </button>
+        <div class="btn-group dropup">
+            <button type="button" class="mdl-button mdl-js-button mdl-button--fab adminbutton dropdown-toggle" data-toggle="dropdown" style="overflow: visible;"><em style="display: none;"></em>
+                <img src="img/member.png" alt="" class="button-member">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <!-- Dropdown menu links -->
+                <li><a href="registeredUser.html">新注册用户</a></li>
+                <li><a href="administrator.html" id="guanliyuan">管理员</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <script src="dist/flatpickr.js"></script>
+    <script src="js/admin-view.js"></script>
+</body>
+
+</html>

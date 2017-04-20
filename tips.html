@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="">
+    <meta charset="utf-8" />
+    <title>华北电力大学大学生创新网</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/material.min.js"></script>
+    
+</head>
+
+<body>
+    <img src="img/indexBackground.png" class="index-background col-md-12">
+    <div class="index-top col-md-12">
+        <img src="img/indexTitle.png" class="col-md-5">
+    </div>
+    <div class="col-md-12 main">
+        <div class="col-md-6 forgetPassword">
+            <div class="col-md-12">
+                <div class="col-md-5 main-right-self-title-text" style="padding-left: 0;">温馨提示：</div>
+            </div>
+            <div class="col-md-12 col-md-offset-2 tips-text">
+                <p>请关闭此页面，并到相应的电子邮件上查看是否收到认证邮件</p>
+                <p>若没有收到，请重复操作</p>
+                <p>多次尝试仍未成功，请将问题反馈到XXXXXX@XXX.com</p>
+                <p id="countdown">本页面将在 15 秒后自动关闭</p>
+            </div>
+        </div>
+    </div>
+    <!-- 版权说明 -->
+    <footer class="col-md-12" style="position: absolute;">
+        Copyright © 2006-2017 <strong><a href="协会首页\index.html" target="_blank">网络管理协会 NMC</a></strong> All Rights Reserved.<img src="img/loginBackground.png" class="col-md-2 background-img">
+    </footer>
+    </div>
+    <script type="text/javascript">
+     /*倒计时*/
+    var time = 15; //设置倒计时时间
+    function reduce() {
+          time=time-1;
+          document.getElementById("countdown").innerHTML="本页面将在 " + time + " 秒后自动关闭";
+          if(time==0) window.close();
+    }
+    setInterval('reduce()', 1000);
+    </script>
+</body>
+
+</html>

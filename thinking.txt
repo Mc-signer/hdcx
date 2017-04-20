@@ -1,0 +1,39 @@
+登录：name,password
+注册：name,password,contact,email
+参与项目：teamName,proName,proIntro,priName,priContact,teachName,teachContact,attachment;
+队员以数组形式传输:name[],gender[],contact[],insititute[],class[],stunum[],idcard[],email[]
+添加比赛：name,intro,deadline
+
+登录部分
+login.php input:post{name,password};
+		  output:{"success"=>true/false,"notice"=>"错误提示"};
+register.php input:post{name,password,contact,email};
+output:{"success"=>true/false,"notice"=>"发送验证码提示或错误提示"}
+
+前后端数据交互
+报名比赛：teamController-addTeam gameId/teamName/proName/proIntro/priName/priContact/teachName/teachContact
+添加成员：teamController-addMember teamId/name/gender/contact/insititute/class/stunum/idcard/email
+修改比赛：gameController-edit gameId/name/intro/deadline/sponsor
+添加管理员：adminController-add name/password/insititute/contact/degree
+修改管理员：adminController-edit adminId/name/password/institute/contact/degree
+获得已结束比赛：gameController-getOverGames num(查询起始数)
+
+展示比赛 getGames 展示用户 getUser
+修改个人资料 editUser 修改密码 eidtPassword
+退出 logout
+
+添加比赛addTeam
+审核队伍judgeTeam
+队伍信息teamInfo
+
+添加比赛 gameController.php add 返回id值绑定到新比赛上
+修改比赛 gameController.php edit 
+
+active.php需要界面
+
+index.html 正在报名展示未报名未过期的比赛。已经报名展示已报名的比赛，点进去可查看详情，未过期的比赛可编辑报名信息，已过期比赛只能查看详情。
+
+
+
+服务器IP和密码：59.67.225.23    ！@#￥%67890
+邮箱：hdtwcxcy@163.com          tuanwei1
