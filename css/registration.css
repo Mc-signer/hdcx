@@ -1,4 +1,4 @@
-/* 顶部的装饰图案 */
+﻿/* 顶部的装饰图案 */
 
 .main-right-head {
     margin: -20px 0 0 100px;
@@ -158,8 +158,10 @@
 }
 
 .table-define img {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
+    position:relative;
+    top: -3px;
 }
 
 .registration-add {
@@ -179,4 +181,16 @@
     display: none;
     margin-top: 75px;
     margin-left: 170px;
+}
+
+
+/*字数限制*/
+p.textCount {
+    float : right;
+    width : 90%;
+    margin-top : -30px;
+    margin-right : 10px;
+    text-align : right;
+    color : #999999;
+    display : none;
 }

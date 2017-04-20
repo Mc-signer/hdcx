@@ -1,4 +1,4 @@
-body {
+﻿body {
     font-family: "Microsoft Yahei light";
 }
 
@@ -46,6 +46,10 @@ footer {
 
 .index-top {
     background: #0061aa;
+}
+
+.index-top img {
+    margin-top:15px;
 }
 
 .index-user {

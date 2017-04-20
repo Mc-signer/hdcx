@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head lang="">
@@ -49,7 +49,7 @@
         <img src="img/indexTitle.png" class="col-md-5">
     </div>
     <div class="index-user col-md-12">
-        <div class="index-user-logout"><img src="sign/indexLogout.png"><a href="" onclick="logout();">退出<a></div>
+        <div class="index-user-logout"><!--img src="sign/indexLogout.png"--><a href="" onclick="logout();">退出<a></div>
     <div class="index-user-name"><img src="sign/indexAdmin.png"><a href="index.html"></a></div>
     </div>
     <div class="col-md-12 main">
@@ -58,7 +58,7 @@
             <div class="col-md-3 main-admin-match-title-contain">
                 <!-- 左边 -->
                 <div class="contain-left">
-                    <a href=""><img src="img/arrow.png" alt=""></a>
+                    <a href="index.html"><img src="img/arrow.png" alt=""></a>
                 </div>
                 <!-- 左下 -->
                 <div class="contain-leftBottom"></div>
@@ -82,9 +82,9 @@
             <div class="col-md-12 main-output-basic">
                 <!-- 标题 -->
                 <div class="col-md-12 basic-title">
-                    <div class="col-md-2 basic-title-left">基本信息</div>
+                    <div class="col-md-2 basic-title-left">基本信息</div><span style="position:relative;top:8px;left:-40px;">(点击即可编辑)</span>
                     <div class="col-md-2 basic-title-right">
-                        <button type="button" class="btn btn-success" onclick="submitMessage();">上传信息</button>
+                        <button type="button" class="btn btn-success" onclick="submitMessage();">点击修改</button>
                     </div>
                 </div>
                 <!-- 内容 -->
@@ -98,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <label for="proIntro" class="col-md-3 control-label">课题简介：</label>
-                            <textarea rows="6" type="text" class="col-md-9 textarea" id="proIntro" style="resize:none;" placeholder="请填写课题简介"></textarea>
+                            <textarea rows=4" type="text" class="col-md-9 textarea textarea-control" id="proIntro" style="resize:none;" placeholder="请填写课题简介"></textarea><p class="textCount" style="float:right;margin-top:-30px;margin-right:10px;color:#999999;display:none;"></p>
                         </div>
                         <div class="form-group">
                             <label for="priName" class="col-md-3 control-label">负责人姓名：</label>
@@ -277,7 +277,7 @@
     </div>
     <!-- 版权说明 -->
     <footer class="col-md-12">
-        Copyright © 2006-2017 <strong><a href="协会首页\index.html" target="_blank">网络管理协会 NMC</a></strong> All Rights Reserved.<img src="img/loginBackground.png" class=" col-md-2 background-img">
+        Copyright © 2006-2017 <strong><a style="cursor:default;">网络管理协会 NMC</a></strong> All Rights Reserved.<img src="img/loginBackground.png" class=" col-md-2 background-img">
     </footer>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="FileUpload/js/plugins/jquery.min.js"></script>
@@ -311,6 +311,31 @@
     <!-- The main application script -->
     <script src="FileUpload/js/app.js"></script>
     <script src="js/user-output.js"></script>
+    <script type="text/javascript">
+    /*控制点击输入区域时出现剩余字数*/
+    $(document).ready(function(){
+  	$("#proIntro").focus(function(){
+                _val = $(this).val(),  
+                count = 150 - _val.length;
+                $(".textCount").text("剩余"+count+"字"); 
+    		$(".textCount").css("display","block");
+  	});
+  	$("#proIntro").blur(function(){
+    		$(".textCount").css("display","none");
+  	});
+    });
+     /*字数限制*/ 
+    $("#proIntro").on("input propertychange", function() {  
+        var $this = $(this), 
+           _val = $this.val(),  
+            count = 150 - _val.length;
+        if ( count < 0 ) {  
+            $this.val(_val.substring(0, 150));  
+        }  
+        count = 150 - $this.val().length;
+        $(".textCount").text("剩余"+count+"字");  
+    }); 
+    </script> 
 </body>
 
 </html>

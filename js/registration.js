@@ -1,4 +1,4 @@
-/*下一步上一步按钮*/
+﻿/*下一步上一步按钮*/
 function memberShow() {
     $("#member").css("display", "block");
     $("#basic").css("display", "none");
@@ -21,8 +21,10 @@ function uploadShow() {
     $("#third .beGrey").removeClass("beGrey");
 }
 
+
+
 function addMember(){
-    $("#chengyuan").append("<tr><td><button><img src='img/delete.png'></button></td><td>***</td><td>*</td><td>***********</td><td>***系</td><td>**1501</td><td>*****</td><td>*****</td><td>***@***.com</td></tr>");
+    $("#chengyuan").append("<tr><td><button><img src='img/delete.png' ></button></td><td>***</td><td>*</td><td>***********</td><td>***系</td><td>**1501</td><td>*****</td><td>*****</td><td>***@***.com</td></tr>");
     $("#chengyuan tr:last td").attr("ondblclick","ShowElement(this);");
     $("#chengyuan tr:last td:first").attr("onclick","deleteMember(this);");   
 }
@@ -92,6 +94,7 @@ function firstStep() {
         "members": member,
         //"attachment":......
     };
+
 }
 
 /*成员列表抓取数据*/
@@ -111,9 +114,14 @@ function secondStep(){
          };
       }
       $.post("php/teamController.php",json,function(data){
+            console.log(data);
             data=eval("("+data+")");
             alert(data.notice);
-            if (data.success==true) uploadShow();            
+            if (data.success==true) {
+		        uploadShow(); 
+                $(".stepBack").css("display","none");
+                $(".endUpload").css("display","block");
+            }           
         });
 }
 

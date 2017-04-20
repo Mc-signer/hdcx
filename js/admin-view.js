@@ -1,4 +1,4 @@
-/*$.post("php/gameController.php",{'key':'getGames'},function(data){
+﻿/*$.post("php/gameController.php",{'key':'getGames'},function(data){
     data=eval("(" + data + ")");
     console.log(data);
     //展示比赛
@@ -54,6 +54,7 @@ function dotsOption(element) {
 
 function dots(element) {
     $(element).next().toggle();
+    $(element).next().next().toggle();
 }
 
 
@@ -67,7 +68,7 @@ $.post("php/gameController.php", { 'key': 'getGames' }, function(data) {
     data = eval("(" + data + ")");
     if (data.length == 0) $(".main-right-match-now .jiange .none").css("display", "block");
     for (var i = 0; i <= data.length - 1; i++)
-        $(".main-right-match-now .jiange").append("<div class='col-md-12 main-right-match-content-detail' id='" + data[i].id + "' style='display:block;' ><div class='col-md-10' onclick='viewNowTeam(this);'><div class='col-md-12 detail-head'><div class='col-md-5 detail-head-left' data='a'>" + data[i].name + "</div><div class='col-md-3 detail-head-middle-now' data='b'><span>" + data[i].date + "</span></div><div class='col-md-4 detail-head-right-now' data='b'>截止日期：<span>" + data[i].deadline + "</span></div></div><div class='col-md-12 detail-body-now' data='c'>" + data[i].intro + "</div></div><div class='col-md-12 detail-foot-button'><div class='sponsor'><div class='sponsor-section'>主办方：</div><div class='sponsor-content' data='a'>" + data[i].sponsor + "</div></div><div class='three-button'><a href='javascript:return false' onclick='edit(this);' data='" + data[i].id + "'><img src='img/edit.png'></a><a href='php/excel.php?gameId=" + data[i].id + "'><img src='img/download.png'></a><a href='javascript:return false' onclick='deleteItem(this);'><img src='img/delete.png'></a></div><div class='two-button'><a href='javascript:return false' onclick='recover(this);'><img src='img/cuo.png'></a><a href='javascript:return false' onclick='recover(this);editEnsure(this);'><img src='img/dui.png'></a></div></div></div>");
+        $(".main-right-match-now .jiange").append("<div class='col-md-12 main-right-match-content-detail' id='" + data[i].id + "' style='display:block;' ><div class='col-md-12' onclick='viewNowTeam(this);'><div class='col-md-12 detail-head'><div class='col-md-5 detail-head-left' data='a'>" + data[i].name + "</div><div class='col-md-3 detail-head-middle-now' data='b'><span>" + data[i].date + "</span></div><div class='col-md-4 detail-head-right-now' data='b'>截止日期：<span>" + data[i].deadline + "</span></div></div><div class='col-md-12 detail-body-now' data='c'>" + data[i].intro + "</div></div><div class='col-md-12 detail-foot-button'><div class='sponsor'><div class='sponsor-section'>主办方：</div><div class='sponsor-content' data='a'>" + data[i].sponsor + "</div></div><div class='three-button'><a href='javascript:return false' onclick='edit(this);' data='" + data[i].id + "'><img src='img/edit.png'></a><a href='php/excel.php?gameId=" + data[i].id + "'><img src='img/download.png'></a><a href='javascript:return false' onclick='deleteItem(this);'><img src='img/delete.png'></a></div><div class='two-button'><a href='javascript:return false' onclick='recover(this);'><img src='img/cuo.png'></a><a href='javascript:return false' onclick='recover(this);editEnsure(this);'><img src='img/dui.png'></a></div></div></div>");
 });
 
 
@@ -79,7 +80,7 @@ $.post("php/gameController.php", { 'key': 'getOverGames', 'num': '0' }, function
     data = eval("(" + data + ")");
     
     for (var i = 0; i <= data.length - 1; i++)
-        $(".main-right-match-finish .jiange").append("<div class='col-md-12 main-right-match-content-detail' id='" + data[i].id + "'><div class='col-md-10' onclick='viewMatch(this);'><div class='col-md-12 detail-head'><div class='col-md-5 detail-head-left'>" + data[i].name + "</div><div class='col-md-3 detail-head-middle-now'>" + data[i].date + "</div><div class='col-md-4 detail-head-right-now'>截止日期：" + data[i].deadline + "</div></div><div class='col-md-12 detail-body-now'>" + data[i].intro + "</div></div><div class='col-md-2 three-dots'><button type='button' class=' three-dots-button' onclick='dots(this);'><img src='img/more.png'></button><div class='col-md-9 three-dots-option' onclick='dotsOption(this);'>删除</div></div><img src='img/jieshu.png'class='detail-foot-img'></div>");
+        $(".main-right-match-finish .jiange").append("<div class='col-md-12 main-right-match-content-detail' id='" + data[i].id + "'><div class='col-md-10' onclick='viewMatch(this);'><div class='col-md-12 detail-head'><div class='col-md-5 detail-head-left'>" + data[i].name + "</div><div class='col-md-3 detail-head-middle-now'>" + data[i].date + "</div><div class='col-md-4 detail-head-right-now'>截止日期：" + data[i].deadline + "</div></div><div class='col-md-12 detail-body-now'>" + data[i].intro + "</div></div><div class='col-md-2 three-dots'><button type='button' class=' three-dots-button' onclick='dots(this);'><img src='img/more.png'></button><div class='col-md-9 three-dots-option' onclick='dotsOption(this);'>删除</div><div class='col-md-9 three-dots-option'><a style='text-decoration:none;color:#333;' href='php/excel.php?gameId=" + data[i].id + "'>导出</a></div></div><img src='img/jieshu.png'class='detail-foot-img'></div>");
     $(".main-right-match-finish .jiange").append("  <div class='col-md-12 col-md-offset-5 detail-more'><button type='button' class='detail-more-button' onclick='moreMatch();'>· · ·</button></div>");
 if (data.length == 0) 
         {
@@ -88,8 +89,9 @@ if (data.length == 0)
         }
     });
 
+/*[邓嘉荣修改]将finish-match.html改为admin-match.html*/
 function viewMatch(element) {
-    window.location.href = "finish-match.html";
+    window.location.href = "admin-match.html";
     sendGameId(element);
 }
 
@@ -156,6 +158,8 @@ function edit(element) {
 
 }
 
+
+
 function ShowElement(element) {　
     if (($(element).find("input").length == 0) && ($(element).find("textarea").length == 0)) {
         var oldhtml = element.innerHTML; //获得元素之前的内容
@@ -166,20 +170,49 @@ function ShowElement(element) {　
         else {
             newobj = document.createElement('textarea');
             newobj.rows = 6;
-            newobj.style.width = "100%";
+            newobj.style.width = "90%";
             newobj.style.resize = "none";
-        }　
+
+            var textCount = document.createElement('p');
+            textCount.id = "textCount"; 
+            textCount.className = "textCount";
+            textCount.style.width = "90%";
+            textCount.style.position = "relative";
+            textCount.style.top= "-30px";
+            textCount.style.textAlign = "right";
+            textCount.style.color = "#999999";
+            textCount.innerHTML = "剩余200字";
+	}
+
         newobj.type = "text";　 //为newobj元素添加类型
-        newobj.value = "";　　　 //设置newobj失去焦点的事件
+        newobj.value = oldhtml;　　　 //设置newobj失去焦点的事件
         newobj.onblur = function() {　　
-            element.innerHTML = this.value ? this.value : oldhtml;　 //当触发时判断newobj的值是否为空，为空则不修改，并返回oldhtml。            　　
-        }　
+        element.innerHTML = this.value ? this.value : oldhtml;　 //当触发时判断newobj的值是否为空，为空则不修改，并返回oldhtml。            　　	
+        }
         element.innerHTML = '';　 //设置元素内容为空       　
         element.appendChild(newobj);　 //添加子元素      　　　　
         newobj.focus();　 //获得焦点
-    }
+	element.appendChild(textCount);
+
+	//字数限制
+
+        $(newobj).on("input propertychange", function() {  
+            var $this = $(this),  
+                _val = $this.val(),  
+                count = 200 - _val.length;  
+            if ( count < 0 ) {  
+                $this.val(_val.substring(0, 200));  
+            }
+            count = 200 - $this.val().length;  
+            $(textCount).text("剩余"+count+"字");  
+        }); 
 
 }
+}
+
+
+
+
 /*退出编辑状态*/
 function recover(element) {
     var father = $(element).parent();
@@ -201,7 +234,7 @@ function recover(element) {
 function add() {
     var now = $(".main-right-match-now .main-right-match-content .jiange");
     $(".main-right-match-now .main-right-match-content .none").css("display", "none");
-    $(now).append("<div class='col-md-12 main-right-match-content-detail' id='' style='display:block;' ><div class='col-md-10' onclick='viewNowTeam(this);'><div class='col-md-12 detail-head'><div class='col-md-5 detail-head-left' data='a'>输入比赛名称</div><div class='col-md-3 detail-head-middle-now' data='b'><span>2016-12-31 23:00</span></div><div class='col-md-4 detail-head-right-now' data='b'>截止日期：<span>2017-01-01 00:00</span></div></div><div class='col-md-12 detail-body-now' data='c'>请输入关于比赛的简介</div></div><div class='col-md-12 detail-foot-button'><div class='sponsor'><div class='sponsor-section'>主办方：</div><div class='sponsor-content' data='a'>XXX系</div></div><div class='three-button'><a href='javascript:return false' onclick='edit(this);' data=''><img src='img/edit.png'></a><a href='php/excel.php?gameId='><img src='img/download.png'></a><a href='javascript:return false' onclick='deleteItem(this);'><img src='img/delete.png'></a></div><div class='two-button'><a href='javascript:return false' onclick='editDelete(this);'><img src='img/cuo.png'></a><a href='javascript:return false' onclick='bangding(this);'><img src='img/dui.png'></a></div></div></div>");
+    $(now).append("<div class='col-md-12 main-right-match-content-detail' id='' style='display:block;' ><div class='col-md-12' onclick='viewNowTeam(this);'><div class='col-md-12 detail-head'><div class='col-md-5 detail-head-left' data='a'>输入比赛名称</div><div class='col-md-3 detail-head-middle-now' data='b'><span>点击编辑发布日期</span></div><div class='col-md-4 detail-head-right-now' data='b'>截止日期：<span>点击编辑</span></div></div><div class='col-md-12 detail-body-now' data='c'>请输入关于比赛的简介</div></div><div class='col-md-12 detail-foot-button'><div class='sponsor'><div class='sponsor-section'>主办方：</div><div class='sponsor-content' data='a'>XXX系</div></div><div class='three-button'><a href='javascript:return false' onclick='edit(this);' data=''><img src='img/edit.png'></a><a href='php/excel.php?gameId='><img src='img/download.png'></a><a href='javascript:return false' onclick='deleteItem(this);'><img src='img/delete.png'></a></div><div class='two-button'><a href='javascript:return false' onclick='editDelete(this);'><img src='img/cuo.png'></a><a href='javascript:return false' onclick='bangding(this);'><img src='img/dui.png'></a></div></div></div>");
     var editButton = $(now).find(".main-right-match-content-detail").last();
     var editButton_a = $(editButton).find("a");
     edit($(editButton_a[0]));

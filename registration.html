@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head lang="">
@@ -46,7 +46,7 @@
     </div>
     </div>
     <div class="index-user col-md-12">
-        <div class="index-user-logout"><img src="sign/indexLogout.png"><a href="" onclick="logout();">退出<a></div>
+        <div class="index-user-logout"><!--img src="sign/indexLogout.png"--><a href="" onclick="logout();">退出<a></div>
     <div class="index-user-name"><img src="sign/indexAdmin.png"><a href="index.html"></a></div>
     </div>
     <div class="col-md-12 main">
@@ -59,7 +59,7 @@
             <!-- 外框 -->
             <div class="col-md-12 main-right-head">
                 <!-- 左上的取消 -->
-                <div class="main-right-head-cancle"><a href="index.html" style="" id="canclethis">返回</a></div>
+                <div class="main-right-head-cancle"><a href="index.html" style="" id="canclethis" class="stepBack">返回</a><a href="index.html" style="display:none;font-size:14px;position:relative;left:5px;" id="canclethis" class="endUpload">结束上传</a></div>
                 <!-- 左下的比赛名称 -->
                 <div class="main-right-head-matchName">
                     <div class="main-right-head-matchName-text" id="matchName"></div>
@@ -91,14 +91,14 @@
                         <div class="main-right-head-box topBox beGrey" style="background:transparent;">附件上传</div>
                     </div>
                 </div>
-                <div id="last">
+                <!--div id="last"-->
                     <!-- 右边最后一条底边 -->
-                    <div class="main-right-head-commonBottom beGrey" style="left:313px;"></div>
+                    <!--div class="main-right-head-commonBottom beGrey" style="left:313px;"></div-->
                     <!-- 最后一个 -->
-                    <div class="main-right-head-circlePoint beGrey" style="left:403px;">
-                        <div class="lastBox beGrey" style="background: transparent;">完成</div>
-                    </div>
-                </div>
+                    <!--div class="main-right-head-circlePoint beGrey" style="left:403px;"-->
+                        <!--div class="lastBox beGrey" style="background: transparent;">完成</div-->
+                    <!--/div>
+                </div-->
             </div>
             <!-- 报名信息————基本信息 -->
             <div class="col-md-7 main-right-basicInformation" id="basic" style="display:;">
@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <label for="firstname" class="col-md-3 control-label">课题简介：</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" id="proIntro" rows="3" placeholder="介绍一下你们的课题吧" style="resize: none;"></textarea>
+                            <textarea class="form-control" id="proIntro" rows="4" placeholder="介绍一下你们的课题吧" style="resize: none;"></textarea><p class="textCount">剩余150字</p>
                         </div>
                     </div>
                     <div class="form-group">
@@ -177,8 +177,9 @@
                 <!-- 温馨提示 -->
                 <div class="col-md-10 col-md-offset-2">
                     <h4>温馨提示：</h4>
-                    <span>&emsp;&emsp;1、上传文件时需提前把所有准备材料打包好。</span></br>
-                    <span>&emsp;&emsp;2、文件不易过大。否则会出现上传时等待时间会比较长。</span>
+                    <span>&emsp;&emsp;1、上传文件前需将把所有准备材料打包压缩成.rar或.zip等压缩文件</span></br>
+                    <span>&emsp;&emsp;2、文件不宜过大。否则会出现上传时等待时间会比较长</span></br>
+                    <span>&emsp;&emsp;3、</span>
                 </div>
                 <div class="col-md-12 main-right-adjunct-buttons">
                     <div class="container">
@@ -319,6 +320,28 @@
     <script src="FileUpload/js/jquery.fileupload-angular.js"></script>
     <!-- The main application script -->
     <script src="FileUpload/js/app.js"></script>
+    <script type="text/javascript">
+    /*控制点击输入区域时出现剩余字数*/
+    $(document).ready(function(){
+  	$("#proIntro").focus(function(){
+    		$(".textCount").css("display","block");
+  	});
+  	$("#proIntro").blur(function(){
+    		$(".textCount").css("display","none");
+  	});
+    });
+    /*字数限制*/ 
+    $("#proIntro").on("input propertychange", function() {  
+        var $this = $(this), 
+           _val = $this.val(),  
+            count = 150 - _val.length;
+        if ( count < 0 ) {  
+            $this.val(_val.substring(0, 150));  
+        }  
+        count = 150 - $this.val().length;
+        $(".textCount").text("剩余"+count+"字");  
+    });  
+    </script>  
 
 </body>
 

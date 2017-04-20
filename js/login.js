@@ -1,4 +1,4 @@
-    function register() {
+﻿    function register() {
         $("#logButton1").removeClass("login-right-head-choose");
         $("#regButton1").addClass("login-right-head-choose");
         $("#logButton2").removeClass("login-right-window-top-choose");
@@ -55,4 +55,9 @@
         if (event.keyCode == 13)
             if ($("#login").css("display") == "block") loginbutton();
             else registerbutton();
+    }
+
+/*管理员入口*/
+    function entrance() {
+        window.location.href="admin.html";
     }
