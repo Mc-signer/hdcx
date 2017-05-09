@@ -32,6 +32,7 @@ switch($_POST['key']){
 		if(isset($_SESSION['adminId']))
 			$return=array(
 				"success"=>true,
+				"adminId"=>$_SESSION['adminId'],
 				"adminName"=>$_SESSION['adminName'],
 				"adminDegree"=>$_SESSION['degree']
 				);
@@ -95,6 +96,10 @@ switch($_POST['key']){
 	case 'getRegUsers':
 		$admin=new Admin();
 		$return=$admin->getRegUsers();
+		break;
+	case 'getAllUsers':
+		$admin=new Admin();
+		$return=$admin->getAllUsers(isset($_POST['num'])?$_POST['num']:0);
 		break;
 	case 'judge':
 		$admin=new Admin();

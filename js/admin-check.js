@@ -1,5 +1,6 @@
 $.post("php/adminController.php",{'key':'isLogin'},function(data){
 	data=eval("(" + data + ")");
+	console.log(data);
 	if(!data.success){
 		window.location.href="admin.html";
 	}

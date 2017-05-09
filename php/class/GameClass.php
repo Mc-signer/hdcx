@@ -10,6 +10,7 @@ class Game
 	private $date;
 	private $deadline;
 	private $sponsor;
+	private $adminId;
 	function __construct($name='',$intro='',$date='',$deadline='',$sponsor='',$id='')
 	{
 		$this->name=$name;
@@ -50,8 +51,12 @@ class Game
 		$this->date=$row['date'];
 		$this->deadline=$row['deadline'];
 		$this->sponsor=$row['sponsor'];
+		$this->adminId=$row['admin_id'];
 		$mysqli->close();
 		return true;
+	}
+	function isTheAdmin($adminId){
+		return (($adminId==$this->adminId)||($adminId==1))?true:false;
 	}
 	function getGame(){
 		$result=array(
@@ -74,7 +79,7 @@ class Game
 	function addGame($name,$intro,$date,$deadline,$sponsor){
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		$mysqli->query("set names utf8");
-		$result=$mysqli->query("insert into games(name,intro,date,deadline,sponsor) values('$name','$intro','$date','$deadline','$sponsor')");
+		$result=$mysqli->query("insert into games(name,intro,date,deadline,sponsor,admin_id) values('$name','$intro','$date','$deadline','$sponsor','{$_SESSION['adminId']}')");
 		$result=$mysqli->query("select id from games order by id desc");
 		$row=$result->fetch_array(MYSQLI_ASSOC);
 		if(!$result){
@@ -152,10 +157,18 @@ class Game
 		$mysqli->close();
 		return $games;
 	}
+	function getGames(){
+		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
+		$mysqli->query("set names utf8");
+		$result=$mysqli->query("select * from games where deadline > '".date('Y-m-d H:i:s')."'");
+		$games=$result->fetch_all(MYSQLI_ASSOC);
+		$mysqli->close();
+		return $games;
+	}
 	function getOverGames($number){
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		$mysqli->query("set names utf8");
-		$result=$mysqli->query("select * from games where deadline < '".date('Y-m-d H:i:s')."' limit $number,2");
+		$result=$mysqli->query("select * from games where deadline < '".date('Y-m-d H:i:s')."' order by id desc limit $number,2");
 		$games=$result->fetch_all(MYSQLI_ASSOC);
 		$mysqli->close();
 		return $games;

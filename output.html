@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head lang="">
     <meta charset="utf-8" />
     <title>华北电力大学大学生创新网</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/admin-match.css">
+    <link rel="stylesheet" type="text/css" href="css/admin-output.css">
+    <link rel="stylesheet" type="text/css" href="css/user-output.css">
+    <script src="js/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" href="FileUpload/css/style.css">
     <!-- blueimp Gallery styles -->
     <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
@@ -17,10 +23,6 @@
     <noscript>
         <link rel="stylesheet" href="FileUpload/css/jquery.fileupload-ui-noscript.css">
     </noscript>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/registration.css">
-    <script src="js/jquery-1.9.1.min.js"></script>
     <style>
     /* Hide Angular JS elements before initializing */
     
@@ -41,115 +43,107 @@
 
 <body>
     <img src="img/indexBackground.png" class="index-background col-md-12">
+    <div id="teamId" style="display:none;"></div>
+    <div id="gameId" style="display:none;"></div>
     <div class="index-top col-md-12">
         <img src="img/indexTitle.png" class="col-md-5">
     </div>
-    </div>
     <div class="index-user col-md-12">
-        <div class="index-user-logout"><!--img src="sign/indexLogout.png"--><a href="" onclick="logout();">退出<a></div>
+        <div class="index-user-logout"><img src="sign/indexLogout.png"><a href="" onclick="logout();">退出<a></div>
     <div class="index-user-name"><img src="sign/indexAdmin.png"><a href="index.html"></a></div>
     </div>
     <div class="col-md-12 main">
-        <!-- 左侧的目录 -->
-        
-        <div class="col-md-1" id="chenggan"></div>
-        <!-- 右侧的主体部分 -->
-        <div class="col-md-10 main-right">
-            <!-- 装饰 -->
-            <!-- 外框 -->
-            <div class="col-md-12 main-right-head">
-                <!-- 左上的取消 -->
-                <div class="main-right-head-cancle"><a href="index.html" style="" id="canclethis" class="stepBack">返回</a><a href="index.html" style="display:none;font-size:14px;position:relative;left:5px;" id="canclethis" class="endUpload">结束上传</a></div>
-                <!-- 左下的比赛名称 -->
-                <div class="main-right-head-matchName">
-                    <div class="main-right-head-matchName-text" id="matchName"></div>
+        <!-- 标题 -->
+        <div class="col-md-12 main-admin-match-title">
+            <div class="col-md-3 main-admin-match-title-contain">
+                <!-- 左边 -->
+                <div class="contain-left">
+                    <a href=""><img src="img/arrow.png" alt=""></a>
                 </div>
-                <!-- 右下角的标题 -->
-                <div class="main-right-head-sectionName">报名信息</div>
-                <!-- 右边第一条底边 -->
-                <div class="main-right-head-commonBottom" style="width:120px;"></div>
-                <!-- 第一个 -->
-                <div class="main-right-head-circlePoint" style="left:115px;">
-                    <div class="main-right-head-string topString"></div>
-                    <div class="main-right-head-box topBox" style="background:transparent;">基本信息</div>
-                </div>
-                <div id="second">
-                    <!-- 右边第二条底边 -->
-                    <div class="main-right-head-commonBottom beGrey" style="left:121px;"></div>
-                    <!-- 第二个 -->
-                    <div class="main-right-head-circlePoint beGrey" style="left:211px;">
-                        <div class="main-right-head-string bottomString beGrey"></div>
-                        <div class="main-right-head-box bottomBox beGrey" style="background:transparent;">成员列表</div>
+                <!-- 左下 -->
+                <div class="contain-leftBottom"></div>
+                <!-- 右下 -->
+                <div class="contain-bottom">
+                    <div class="contain-bottom-text">
+                        <!-- 蚂蚁聚宝 -->
                     </div>
                 </div>
-                <div id="third">
-                    <!-- 右边第三条底边 -->
-                    <div class="main-right-head-commonBottom beGrey" style="left:217px;"></div>
-                    <!-- 第三个 -->
-                    <div class="main-right-head-circlePoint beGrey" style="left:307px;">
-                        <div class="main-right-head-string topString beGrey"></div>
-                        <div class="main-right-head-box topBox beGrey" style="background:transparent;">附件上传</div>
-                    </div>
+                <!-- 右上 -->
+                <div class="col-md-12 contain-text">
+                    <div class="col-md-12 contain-text-title main-right-match-title-text"><!-- "互联网+"应用大赛 --></div>
                 </div>
-                <!--div id="last"-->
-                    <!-- 右边最后一条底边 -->
-                    <!--div class="main-right-head-commonBottom beGrey" style="left:313px;"></div-->
-                    <!-- 最后一个 -->
-                    <!--div class="main-right-head-circlePoint beGrey" style="left:403px;"-->
-                        <!--div class="lastBox beGrey" style="background: transparent;">完成</div-->
-                    <!--/div>
-                </div-->
             </div>
-            <!-- 报名信息————基本信息 -->
-            <div class="col-md-7 main-right-basicInformation" id="basic" style="display:;">
-                <form class="col-md-12 form-horizontal" role="form">
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">比赛课题：</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="proName" placeholder="输入您的参赛课题名称">
+        </div>
+        <!-- 主体内容 -->
+        <div class="col-md-8 col-md-offset-2 main-output">
+            <!-- 基本信息 -->
+            <div class="col-md-12 main-output-basic">
+                <!-- 标题 -->
+                <div class="col-md-12 basic-title">
+                    <div class="col-md-2 basic-title-left">基本信息</div>
+                     <div class="col-md-2 basic-title-right">
+                        <button type="button" class="btn btn-success" onclick="submitMessage();" >上传信息</button>
+                    </div> 
+                </div>
+                <!-- 内容 -->
+                <div class="col-md-9 col-md-offset-1 basic-content" id="basic">
+                    <form class="col-md-12 form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="proName" class="col-md-3 control-label">比赛课题：</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="proName" value="" placeholder="请填写比赛课题">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">课题简介：</label>
-                        <div class="col-md-9">
-                            <textarea class="form-control" id="proIntro" rows="4" placeholder="介绍一下你们的课题吧" style="resize: none;"></textarea><p class="textCount">剩余150字</p>
+                        <div class="form-group">
+                            <label for="proIntro" class="col-md-3 control-label">课题简介：</label>
+                            <textarea rows="6" type="text" class="col-md-9 textarea" id="proIntro" style="resize:none;" placeholder="请填写课题简介" ></textarea>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">负责人姓名：</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="priName">
+                        <div class="form-group">
+                            <label for="priName" class="col-md-3 control-label">负责人姓名：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="priName" value="" placeholder="请填写负责人姓名">
+                            </div>
+                            <label for="priContact" class="col-md-3 control-label">负责人联系方式：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="priContact" value="" placeholder="请填写负责人电话">
+                            </div>
                         </div>
-                        <label for="firstname" class="col-md-3 control-label">负责人联系方式：</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="priContact">
+                        <div class="form-group">
+                            <label for="teachName" class="col-md-3 control-label">指导教师姓名：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="teachName" value="" placeholder="请填写老师姓名">
+                            </div>
+                            <label for="teachContact" class="col-md-3 control-label">指导教师联系方式：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="teachContact" value="" placeholder="请填写老师电话">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">指导教师姓名：</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="teachName">
+                        <div class="form-group">
+                            <label for="teamName" class="col-md-3 control-label">团队名称：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="teamName" value="" placeholder="请填写团队名称">
+                            </div>
+                             <label for="status" class="col-md-3 control-label statusClass">当前队伍状态：</label>
+                            <div class="col-md-3 statusClass">
+                                <input type="text" class="form-control input-none" id="status" value="" readonly="readonly" style="cursor: default;">
+                            </div>
+                            <label for="award" class="col-md-3 control-label awardClass">获奖情况：</label>
+                            <div class="col-md-3 awardClass">
+                                <input type="text" class="form-control" id="award" value="" placeholder="请填写获奖情况">
+                            </div>
                         </div>
-                        <label for="firstname" class="col-md-3 control-label">指导教师联系方式：</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="teachContact">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">团队名称：</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="teamName">
-                        </div>
-                    </div>
-                </form>
-                <div class="col-md-12 step">———— <a href="javascript:return false" onclick="firstStep();">下一步 <img src="img\箭头.png" alt=""></a> ——</div>
+                    </form>
+                </div>
             </div>
-            <!-- 报名信息————成员列表 -->
-            <div class="col-md-9 main-right-memberList" id="member">
-                <!-- 表格 -->
-                <div class="col-md-12" style="padding: 0;">
-                    <table class="table table-define">
-                        <caption class="">成员信息</caption>
+            <!-- 成员信息 -->
+            <div class="col-md-12 main-output-basic">
+                <!-- 标题 -->
+                <div class="col-md-12 basic-title">
+                    <div class="col-md-2 basic-title-left">成员信息</div>
+                </div>
+                <!-- 内容 -->
+                <div class="col-md-11 col-md-offset-1 basic-content">
+                    <table class="table">
                         <thead>
                             <tr style="">
                                 <th style="width:2%;"></th>
@@ -163,25 +157,21 @@
                                 <th style="width:22%;">电子邮箱</th>
                             </tr>
                         </thead>
-                        <tbody id="chengyuan">
+                        <tbody id="members">
                         </tbody>
                     </table>
-                    <!-- 添加按钮 -->
-                    <button type="button" class="btn btn-info col-md-offset-5 col-md-1 registration-add" onclick="addMember();"><img src="img\加号.png"></button>
-                    <div class="col-md-12 step">——
-                        <a href="javascript:return false" onclick="basicShow();"><img src="img\箭头1.png" alt=""> 上一步&ensp;&ensp;</a> <a href="javascript:return false" onclick="secondStep();">报名并提交附件 <img src="img\箭头.png" alt=""></a> ——</div>
+                     <button type="button" class="btn btn-info col-md-offset-5 col-md-1 registration-add" onclick="addMember();"><img src="img\加号.png"></button>
                 </div>
             </div>
-            <!-- 附件上传 -->
-            <div class="col-md-8 main-right-adjunct" id="upload">
-                <!-- 温馨提示 -->
-                <div class="col-md-10 col-md-offset-2">
-                    <h4>温馨提示：</h4>
-                    <span>&emsp;&emsp;1、上传文件前需将把所有准备材料打包压缩成.rar或.zip等压缩文件</span></br>
-                    <span>&emsp;&emsp;2、文件不宜过大。否则会出现上传时等待时间会比较长</span></br>
-                    <span>&emsp;&emsp;3、</span>
+            <!-- 附件 -->
+            <div class="col-md-12 main-output-basic">
+                <!-- 标题 -->
+                <div class="col-md-12 basic-title">
+                    <div class="col-md-2 basic-title-left">附&emsp;&emsp;件</div>
+                   
                 </div>
-                <div class="col-md-12 main-right-adjunct-buttons">
+                <!-- 内容 --> 
+                <div class="col-md-10 col-md-offset-1 basic-content" style="margin-top:0px;">
                     <div class="container">
                         <br>
                         <!-- The file upload form used as target for the file upload widget -->
@@ -192,7 +182,7 @@
                             </noscript>
                             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
                             <div class="row fileupload-buttonbar">
-                                <div class="col-lg-7">
+                                <div class="col-lg-7" id="buttonGroup">
                                     <!-- The fileinput-button span is used to style the file input field as button -->
                                     <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
                     <i class="glyphicon glyphicon-plus"></i>
@@ -265,7 +255,6 @@
                             </table>
                             </div>
                         </form>
-                        <div class="col-md-8 step">———— <img src="img\箭头1.png" alt=""><a href="javascript:return false" onclick="jieshu();">结束报名 <img src="img\箭头.png" alt=""></a> ——</div>
                         <br>
                     </div>
                     <!-- The blueimp Gallery widget -->
@@ -279,18 +268,19 @@
                         <ol class="indicator"></ol>
                     </div>
                 </div>
-                <!-- <div class="col-md-12 step">——
-                    <a href="javascript:return false" onclick="memberShow();"><img src="img\箭头1.png" alt=""> 上一步</a> <a href="javascript:return false">完&nbsp;成 <img src="img\箭头2.png" alt=""></a> ——</div>
-                            </div> -->
+                </div>
+            </div>
+        
+        <div class="col-md-2">
+            <!-- <button type="button" class="btn btn-success" onclick="submitMessage();" >上传信息</button> -->
         </div>
     </div>
-
     <!-- 版权说明 -->
     <footer class="col-md-12">
-        Copyright © 2006-2017 <strong><a href="协会首页\index.html" target="_blank">网络管理协会 NMC</a></strong> All Rights Reserved.<img src="img/loginBackground.png" class="col-md-2 background-img">
+        Copyright © 2006-2017 <strong><a href="协会首页\index.html" target="_blank">网络管理协会 NMC</a></strong> All Rights Reserved.<img src="img/loginBackground.png" class=" col-md-2 background-img">
     </footer>
-        <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/registration.js"></script>
+
+    <script src="bootstrap/js/bootstrap.js"></script>
     <script src="FileUpload/js/plugins/jquery.min.js"></script>
     <script src="FileUpload/js/plugins/angular.min.js"></script>
     <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
@@ -321,29 +311,7 @@
     <script src="FileUpload/js/jquery.fileupload-angular.js"></script>
     <!-- The main application script -->
     <script src="FileUpload/js/app.js"></script>
-    <script type="text/javascript">
-    /*控制点击输入区域时出现剩余字数*/
-    $(document).ready(function(){
-  	$("#proIntro").focus(function(){
-    		$(".textCount").css("display","block");
-  	});
-  	$("#proIntro").blur(function(){
-    		$(".textCount").css("display","none");
-  	});
-    });
-    /*字数限制*/ 
-    $("#proIntro").on("input propertychange", function() {  
-        var $this = $(this), 
-           _val = $this.val(),  
-            count = 150 - _val.length;
-        if ( count < 0 ) {  
-            $this.val(_val.substring(0, 150));  
-        }  
-        count = 150 - $this.val().length;
-        $(".textCount").text("剩余"+count+"字");  
-    });  
-    </script>  
-
+        <script src="js/user-output.js"></script>
 </body>
 
 </html>

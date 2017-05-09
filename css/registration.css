@@ -41,12 +41,13 @@
 }
 
 .main-right-head-matchName-text {
-    width: 35px;
+    width: 25px;
     position: relative;
     left: 55px;
     top: 15px;
     font-size: 1.8em;
     line-height: 25px;
+    word-wrap: break-word;
 }
 
 .main-right-head-commonBottom {

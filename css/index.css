@@ -24,8 +24,10 @@ footer {
     display:none;
 }
 
-.middle{
-
+.contain-bottom-text{
+     white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 .input-none{
      border: 0;
@@ -158,6 +160,9 @@ height: 50px;
     margin-top: 10px;
     font-size: 1.9em;
     float: left;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 
 .main-right-match-title-decoration {

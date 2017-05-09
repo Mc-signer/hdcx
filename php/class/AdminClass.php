@@ -130,7 +130,15 @@ class Admin
 	function getRegUsers(){
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		$mysqli->query("set names utf8");
-		$result=$mysqli->query("select id,name,contact,email from t_users where status='1'");
+		$result=$mysqli->query("select id,name,xingming,contact,email from t_users where status='1'");
+		$rows=$result->fetch_all(MYSQLI_ASSOC);
+		$mysqli->close();
+		return $rows;
+	}
+	function getAllUsers($num){
+		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
+		$mysqli->query("set names utf8");
+		$result=$mysqli->query("select id,name,xingming,contact,email from users order by id desc limit $num,10 ");
 		$rows=$result->fetch_all(MYSQLI_ASSOC);
 		$mysqli->close();
 		return $rows;
@@ -141,9 +149,9 @@ class Admin
 			return false;
 		}
 		$mysqli->query("set names utf8");
-		$result=$mysqli->query("select name,password,contact,email from t_users where id = '$id'");
+		$result=$mysqli->query("select name,xingming,password,contact,email from t_users where id = '$id'");
 		$row=$result->fetch_array(MYSQLI_ASSOC);
-		$result=$mysqli->query("insert into users(name,password,contact,email) values('{$row['name']}','{$row['password']}','{$row['contact']}','{$row['email']}')");
+		$result=$mysqli->query("insert into users(name,xingming,password,contact,email) values('{$row['name']}','{$row['xingming']}','{$row['password']}','{$row['contact']}','{$row['email']}')");
 		$result=$mysqli->query("delete from t_users where id = '$id'");
 		$mysqli->close();
 		return true;

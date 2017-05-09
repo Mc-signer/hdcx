@@ -23,7 +23,7 @@
     </div>
     </div>
     <div class="index-user col-md-12">
-        <div class="index-user-logout"><!--img src="sign/indexLogout.png"--><a href="">退出<a></div>
+        <div class="index-user-logout"><!--img src="sign/indexLogout.png"--><a href="" onclick="logout();">退出<a></div>
     <div class="index-user-name"><img src="sign/indexAdmin.png"><a href="admin-view.html"></a></div>
     </div>
     <div class="col-md-12 main">
@@ -33,46 +33,34 @@
                 <div class="arrow">
                     <a href="admin-view.html"><img width="30" height="23" style="margin-top:10px;margin-left:35px;margin-bottom:10px;" src="img/arrow.png" alt=""></a>
                 </div>
-                <div class="main-right-match-title-text user-register-text">新注册用户</div>
+                <div class="main-right-match-title-text user-register-text">用户列表</div>
                 <div class="main-right-match-title-decoration"></div>
             </div>
             <!-- 正在报名————内容 -->
             <div class="col-md-6 main-right-match-content user-register-content">
-            <div class="jiange"></div>
-               <div class="col-md-12 none" id="noneId">没有新注册用户~</div>
+            <div class="jiange">
+                <div id="weizhuce"></div>
+                <div id="yizhuce"></div>
+            </div>
+            <div class="jiange1"></div>
                 <!-- 每一个detail代表一个用户 -->
-<!--                 <div class="col-md-11 main-right-match-content-detail ">
+                
+ <!-- <div class="col-md-11 main-right-match-content-detail ">
     <div class="col-md-9">
-        <div class="col-md-5 register-label">
-            <div class="col-md-12">用户名：</div>
+        <div class="col-md-3 register-label">
+            <div class="col-md-12">学号：</div>
             <div class="col-md-12">联系方式：</div>
+        </div>
+        <div class="col-md-3 register-content">
+            <div class="col-md-12">ABC12346</div>
+            <div class="col-md-12">123456789745612@163.COM</div>
+        </div> <div class="col-md-3 register-label">
+            <div class="col-md-12">姓名：</div>
             <div class="col-md-12">E-mail：</div>
         </div>
-        <div class="col-md-7 register-content">
-
+        <div class="col-md-3 register-content">
             <div class="col-md-12">ABC12346</div>
             <div class="col-md-12">12345678910</div>
-            <div class="col-md-12">123456789745612@163.COM</div>
-        </div>
-    </div>
-    <div class="col-md-2 register-button">
-        <button type="button" class=" col-md-12 btn btn-primary" onclick="agreeReg(this);">
-        <input type="hidden" name="id" value="1">同意
-        </button>
-        <button type="button" class=" col-md-12 btn btn-default" style="background: #F2F2F2;">拒绝</button>
-    </div>
-</div>
-<div class="col-md-11 main-right-match-content-detail ">
-    <div class="col-md-9">
-        <div class="col-md-5 register-label">
-            <div class="col-md-12">用户名：</div>
-            <div class="col-md-12">联系方式：</div>
-            <div class="col-md-12">E-mail：</div>
-        </div>
-        <div class="col-md-7 register-content">
-            <div class="col-md-12">ABC12346</div>
-            <div class="col-md-12">12345678910</div>
-            <div class="col-md-12">123456789745612@163.COM</div>
         </div>
     </div>
     <div class="col-md-2 register-button">
@@ -80,24 +68,7 @@
         <button type="button" class=" col-md-12 btn btn-default" style="background: #F2F2F2;">拒绝</button>
     </div>
 </div>
-<div class="col-md-11 main-right-match-content-detail ">
-    <div class="col-md-9">
-        <div class="col-md-5 register-label">
-            <div class="col-md-12">用户名：</div>
-            <div class="col-md-12">联系方式：</div>
-            <div class="col-md-12">E-mail：</div>
-        </div>
-        <div class="col-md-7 register-content">
-            <div class="col-md-12">ABC12346</div>
-            <div class="col-md-12">12345678910</div>
-            <div class="col-md-12">123456789745612@163.COM</div>
-        </div>
-    </div>
-    <div class="col-md-2 register-button">
-        <button type="button" class=" col-md-12 btn btn-success">同意</button>
-        <button type="button" class=" col-md-12 btn btn-danger">拒绝</button>
-    </div>
-</div> -->
+ -->
             </div>
         </div>
     </div>

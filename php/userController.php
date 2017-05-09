@@ -30,6 +30,7 @@ switch ($_POST['key']) {
 				"success"=>true,
 				"userId"=>$_SESSION['userId'],
 				"userName"=>$_SESSION['userName'],
+				"userXingming"=>$_SESSION['userXingming'],
 				"userContact"=>$_SESSION['contact'],
 				"userEmail"=>$_SESSION['email']
 				);
@@ -49,14 +50,14 @@ switch ($_POST['key']) {
 	
 	case 'editUser':
 		$user=new User();
-		$result=$user->checkEdit($_POST['name'],$_POST['contact'],$_POST['email']);
+		$result=$user->checkEdit($_POST['contact']);
 		if($result!=1){
 			$return=array(
 				"success"=>false,
 				"notice"=>$result
 				);
 		}else {
-			$user->editUser($_POST['name'],$_POST['contact'],$_POST['email']);
+			$user->editUser($_POST['name'],$_POST['contact']);
 			$return=array(
 				"success"=>true,
 				"notice"=>"修改成功！"

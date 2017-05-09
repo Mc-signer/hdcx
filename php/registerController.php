@@ -1,7 +1,7 @@
 <?php
 require_once('config/init.php');
 if(isset($_POST)){
-	$user=new Register($_POST['name'],$_POST['password'],$_POST['contact'],$_POST['email']);
+	$user=new Register($_POST['name'],$_POST['xingming'],$_POST['password'],$_POST['contact'],$_POST['email']);
 } else {
 	exit;
 }

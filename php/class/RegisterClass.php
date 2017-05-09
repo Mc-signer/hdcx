@@ -6,8 +6,9 @@ class Register extends User
 {
 	private $token;
 	private $regtime;
-	function __construct($name='',$password='',$contact='',$email=''){
+	function __construct($name='',$xingming='',$password='',$contact='',$email=''){
 		$this->name=$name;
+		$this->xingming=$xingming;
 		$this->password=sha1($password);
 		$this->contact=$contact;
 		$this->email=$email;
@@ -15,12 +16,12 @@ class Register extends User
 		$this->token=sha1($name.$password.$this->regtime);
 	}
 	function checkReg($password){
-		if(empty($this->name)||empty($this->password)||empty($this->contact)||empty($this->email)){
-			return "用户名、密码、联系方式与邮箱均不能为空";
+		if(empty($this->name)||empty($this->password)||empty($this->xingming)||empty($this->contact)||empty($this->email)){
+			return "学号、姓名、密码、联系方式与邮箱均不能为空";
 		}
 		//检查用户名是否符合规定
-		if(!preg_match("/^(?!_)(?!.*?_$)[a-zA-Z0-9_\x80-\xff]+$/",$this->name)){
-			return "用户名不符合规范，请重试";
+		if(!preg_match("/^[0-9]{5,12}+$/",$this->name)){
+			return "请使用学号注册";
 		}
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		$mysqli->query("set names utf8");
@@ -108,7 +109,7 @@ class Register extends User
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		$mysqli->query("set names utf8");
 		$deadline=$this->regtime+60*60*24;
-		$result=$mysqli->query("insert into t_users(name,password,contact,token,token_exptime,email) values('{$this->name}','{$this->password}','{$this->contact}','{$this->token}','{$deadline}','{$this->email}')");
+		$result=$mysqli->query("insert into t_users(name,xingming,password,contact,token,token_exptime,email) values('{$this->name}','{$this->xingming}','{$this->password}','{$this->contact}','{$this->token}','{$deadline}','{$this->email}')");
 		if(!$result){
 			$mysqli->close();
 			return false;

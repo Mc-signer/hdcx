@@ -3,6 +3,7 @@ use hdcx;
 create table users(
 	id int primary key auto_increment not null,
     name varchar(20) not null,
+    xingming varchar(10) not null,
     password char(40) not null,
     contact varchar(13),
     email varchar(100)
@@ -31,7 +32,8 @@ create table games(
     intro text,
     date datetime,
     deadline datetime,
-    sponsor varchar(20)
+    sponsor varchar(20),
+    admin_id int not null default '1'
 )default charset=utf8;
 create table members(
 	id int primary key auto_increment not null,
@@ -57,7 +59,8 @@ create table teams(
     pri_contact varchar(13),
     teach_name varchar(20),
     teach_contact varchar(13),
-    award varchar(20),
+    award1 varchar(20),
+    award2 varchar(20),
     attachment varchar(100),
     status int default '0'
 )default charset=utf8;

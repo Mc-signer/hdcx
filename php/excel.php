@@ -22,8 +22,10 @@ $objPHPExcel->getActiveSheet()->mergeCells('G1:G2');
 $objPHPExcel->getActiveSheet()->mergeCells('H1:H2');
 $objPHPExcel->getActiveSheet()->mergeCells('I1:I2');
 $objPHPExcel->getActiveSheet()->mergeCells('J1:J2');
-$objPHPExcel->getActiveSheet()->mergeCells('K1:S1');
-$objPHPExcel->getActiveSheet()->mergeCells('T1:T2');
+$objPHPExcel->getActiveSheet()->mergeCells('K1:K2');
+$objPHPExcel->getActiveSheet()->mergeCells('L1:L2');
+$objPHPExcel->getActiveSheet()->mergeCells('M1:T1');
+$objPHPExcel->getActiveSheet()->mergeCells('U1:U2');
 //设置表头单元格值
 $objPHPExcel->getActiveSheet()->setCellValue('A1', '注册账号');
 $objPHPExcel->getActiveSheet()->setCellValue('B1', '大赛名称');
@@ -35,17 +37,18 @@ $objPHPExcel->getActiveSheet()->setCellValue('G1', '负责人联系方式');
 $objPHPExcel->getActiveSheet()->setCellValue('H1', '指导教师姓名');
 $objPHPExcel->getActiveSheet()->setCellValue('I1', '指导教师联系方式');
 $objPHPExcel->getActiveSheet()->setCellValue('J1', '团队成员人数');
-$objPHPExcel->getActiveSheet()->setCellValue('K1', '全部成员及信息');
-$objPHPExcel->getActiveSheet()->setCellValue('K2', '序号');
-$objPHPExcel->getActiveSheet()->setCellValue('L2', '姓名');
-$objPHPExcel->getActiveSheet()->setCellValue('M2', '联系方式');
-$objPHPExcel->getActiveSheet()->setCellValue('N2', '院系');
-$objPHPExcel->getActiveSheet()->setCellValue('O2', '班级');
-$objPHPExcel->getActiveSheet()->setCellValue('P2', '学号');
-$objPHPExcel->getActiveSheet()->setCellValue('Q2', '身份证号');
-$objPHPExcel->getActiveSheet()->setCellValue('R2', '电子邮箱');
-$objPHPExcel->getActiveSheet()->setCellValue('S2', '年龄');
-$objPHPExcel->getActiveSheet()->setCellValue('T1', '是否提交附件');
+$objPHPExcel->getActiveSheet()->setCellValue('K1', '省部(区域)级获奖情况');
+$objPHPExcel->getActiveSheet()->setCellValue('L1', '国家级获奖情况');
+$objPHPExcel->getActiveSheet()->setCellValue('M1', '全部成员及信息');
+$objPHPExcel->getActiveSheet()->setCellValue('M2', '序号');
+$objPHPExcel->getActiveSheet()->setCellValue('N2', '姓名');
+$objPHPExcel->getActiveSheet()->setCellValue('O2', '联系方式');
+$objPHPExcel->getActiveSheet()->setCellValue('P2', '院系');
+$objPHPExcel->getActiveSheet()->setCellValue('Q2', '班级');
+$objPHPExcel->getActiveSheet()->setCellValue('R2', '学号');
+$objPHPExcel->getActiveSheet()->setCellValue('S2', '身份证号');
+$objPHPExcel->getActiveSheet()->setCellValue('T2', '电子邮箱');
+$objPHPExcel->getActiveSheet()->setCellValue('U1', '是否提交附件');
 //设置单元格宽度
 $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(26.33);
 $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(10.89);
@@ -53,16 +56,17 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(15.33);
 $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(13.11);
 $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(17.56);
 $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(17.56);
-$objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(4.78);
-$objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(6.78);
-$objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(11.89);
-$objPHPExcel->getActiveSheet()->getColumnDimension('N')->setWidth(10.89);
-$objPHPExcel->getActiveSheet()->getColumnDimension('O')->setWidth(10.89);
+$objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(20.00);
+$objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(20.00);
+$objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(4.78);
+$objPHPExcel->getActiveSheet()->getColumnDimension('N')->setWidth(6.78);
+$objPHPExcel->getActiveSheet()->getColumnDimension('O')->setWidth(11.89);
 $objPHPExcel->getActiveSheet()->getColumnDimension('P')->setWidth(10.89);
-$objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setWidth(11.78);
-$objPHPExcel->getActiveSheet()->getColumnDimension('R')->setWidth(14.89);
-$objPHPExcel->getActiveSheet()->getColumnDimension('S')->setWidth(8.22);
-$objPHPExcel->getActiveSheet()->getColumnDimension('T')->setWidth(13.11);
+$objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setWidth(10.89);
+$objPHPExcel->getActiveSheet()->getColumnDimension('R')->setWidth(10.89);
+$objPHPExcel->getActiveSheet()->getColumnDimension('S')->setWidth(11.78);
+$objPHPExcel->getActiveSheet()->getColumnDimension('T')->setWidth(14.89);
+$objPHPExcel->getActiveSheet()->getColumnDimension('U')->setWidth(13.11);
 
 //输出比赛信息
 $mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
@@ -76,10 +80,10 @@ $i=3;
 foreach ($rows as $key => $value) {
 	$result1=$mysqli->query("select * from members where team_id='".$value['id']."'");
 	$num=$result1->num_rows;
-	for($j='A';$j<'K';$j++){
+	for($j='A';$j<='L';$j++){
 		$objPHPExcel->getActiveSheet()->mergeCells($j.$i.':'.$j.($i+($num?$num:1)-1));
 	}
-	$objPHPExcel->getActiveSheet()->mergeCells('T'.$i.':'.'T'.($i+($num?$num:1)-1));
+	$objPHPExcel->getActiveSheet()->mergeCells('U'.$i.':'.'U'.($i+($num?$num:1)-1));
 
 	$objPHPExcel->getActiveSheet()->setCellValue('A'.$i, $value['userName']);
 	$objPHPExcel->getActiveSheet()->setCellValue('B'.$i, $value['gameName']);
@@ -91,18 +95,19 @@ foreach ($rows as $key => $value) {
 	$objPHPExcel->getActiveSheet()->setCellValue('H'.$i, $value['teach_name']);
 	$objPHPExcel->getActiveSheet()->setCellValue('I'.$i, $value['teach_contact']);
 	$objPHPExcel->getActiveSheet()->setCellValue('J'.$i, $num);
-	$objPHPExcel->getActiveSheet()->setCellValue('T'.$i, $value['attachment']);
+	$objPHPExcel->getActiveSheet()->setCellValue('K'.$i, $value['award1']);
+	$objPHPExcel->getActiveSheet()->setCellValue('L'.$i, $value['award2']);
+	$objPHPExcel->getActiveSheet()->setCellValue('U'.$i, $value['attachment']);
 	$rows1=$result1->fetch_all(MYSQLI_ASSOC);
 	foreach ($rows1 as $key1 => $value1) {
-		$objPHPExcel->getActiveSheet()->setCellValue('K'.($i+$key1), $key1);
-		$objPHPExcel->getActiveSheet()->setCellValue('L'.($i+$key1), $value1['name']);
-		$objPHPExcel->getActiveSheet()->setCellValue('M'.($i+$key1), $value1['contact']);
-		$objPHPExcel->getActiveSheet()->setCellValue('N'.($i+$key1), $value1['insititute']);
-		$objPHPExcel->getActiveSheet()->setCellValue('O'.($i+$key1), $value1['class']);
-		$objPHPExcel->getActiveSheet()->setCellValue('P'.($i+$key1), $value1['stunum']);
-		$objPHPExcel->getActiveSheet()->setCellValue('Q'.($i+$key1), $value1['idcard']);
-		$objPHPExcel->getActiveSheet()->setCellValue('R'.($i+$key1), $value1['email']);
-		$objPHPExcel->getActiveSheet()->setCellValue('S'.($i+$key1), $value1['age']);
+		$objPHPExcel->getActiveSheet()->setCellValue('M'.($i+$key1), $key1);
+		$objPHPExcel->getActiveSheet()->setCellValue('N'.($i+$key1), $value1['name']);
+		$objPHPExcel->getActiveSheet()->setCellValue('O'.($i+$key1), $value1['contact']);
+		$objPHPExcel->getActiveSheet()->setCellValue('P'.($i+$key1), $value1['insititute']);
+		$objPHPExcel->getActiveSheet()->setCellValue('Q'.($i+$key1), $value1['class']);
+		$objPHPExcel->getActiveSheet()->setCellValue('R'.($i+$key1), $value1['stunum']);
+		$objPHPExcel->getActiveSheet()->setCellValue('S'.($i+$key1), $value1['idcard']);
+		$objPHPExcel->getActiveSheet()->setCellValue('T'.($i+$key1), $value1['email']);
 	}
 
 	$i+=$num;

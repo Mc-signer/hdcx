@@ -13,6 +13,8 @@ class Team
 	private $priContact;
 	private $teachName;
 	private $teachContact;
+	private $award1;
+	private $award2;
 	private $status;
 	function __construct($gameId='',$teamName='',$proName='',$proIntro='',$priName='',$priContact='',$teachName='',$teachContact='',$id='')
 	{
@@ -45,6 +47,8 @@ class Team
 		$this->priContact=$row['priContact'];
 		$this->teachName=$row['teachName'];
 		$this->teachContact=$row['teachContact'];
+		$this->award1=$row['award1'];
+		$this->award2=$row['award2'];
 		$mysqli->close();
 		return true;
 	}
@@ -115,8 +119,8 @@ class Team
 	function editTeam(){
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		$mysqli->query("set names utf8");
-		$stmt=$mysqli->prepare("update teams set team_name=?,pro_name=?,pro_intro=?,pri_name=?,pri_contact=?,teach_name=?,teach_contact=?,status=? where id = ?");
-		$stmt->bind_param("sssssssii",$this->teamName,$this->proName,$this->proIntro,$this->priName,$this->priContact,$this->teachName,$this->teachContact,$this->status,$this->id);
+		$stmt=$mysqli->prepare("update teams set team_name=?,pro_name=?,pro_intro=?,pri_name=?,pri_contact=?,teach_name=?,teach_contact=? where id = ?");
+		$stmt->bind_param("sssssssi",$this->teamName,$this->proName,$this->proIntro,$this->priName,$this->priContact,$this->teachName,$this->teachContact,$this->id);
 		$stmt->execute();
 		$mysqli->close();
 		return true;
@@ -149,16 +153,18 @@ class Team
 		$mysqli->close();
 		return $row;
 	}
-	function setAward($award){
+	function setAward($award1,$award2){
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		if(!$mysqli){
 			return false;
 		}
 		$mysqli->query("set names utf8");
-		$stmt=$mysqli->prepare("update teams set award = ? where id = ?");
-		$stmt->bind_param("si",$award,$_SESSION['teamId']);
+		$stmt=$mysqli->prepare("update teams set award1 = ?,award2 = ? where id = ?");
+		$stmt->bind_param("ssi",$award1,$award2,$_SESSION['teamId']);
 		$stmt->execute();
 		$mysqli->close();
+		$this->award1=$award1;
+		$this->award2=$award2;
 		return true;
 	}
 	function deleteFile($teamId,$fileName){

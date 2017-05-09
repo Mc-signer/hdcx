@@ -35,12 +35,19 @@
     /*注册*/
 
     function registerbutton() {
+        console.log($("#register").serialize());
+
         $("#register-model-content").css("display",'block');
         $("#register-model").css("display",'block');
+
         $.post("php/registerController.php", $("#register").serialize(),
             function(data) {                
-                data = eval("(" + data + ")");                 
+                data = eval("(" + data + ")");
+                 
+                   $("#register-model-content").css("display",'none');
+                    $("#register-model").css("display",'none');
                     alert(data.notice);
+                    
                if (data.notice=='已发送验证邮件，请查收') window.location.href = "login.html";
                $("#register-model").css("display",'none');
                $("#register-model-content").css("display",'none');

@@ -62,7 +62,7 @@ $.post("php/userController.php",{'key':'isLogin'},function(data){
     else{//登陆成功
         //修改登陆名
 
-        $(".index-user-name").find("a:last").html(data.userName);
+        $(".index-user-name").find("a:last").html(data.userXingming);
     } 
 });
 
@@ -71,6 +71,7 @@ function logout() {
 
     });
 }
+
 
 
 
@@ -94,7 +95,23 @@ function firstStep() {
         "members": member,
         //"attachment":......
     };
-
+//2017.5.3 毛帅男 下一步按钮检查不为空
+        var proName=$("#proName").val();
+        var proIntro=$("#proIntro").val();
+        var priName=$("#priName").val();
+        var priContact=$("#priContact").val();
+        var teachName=$("#teachName").val();
+        var teachContact=$("#teachContact").val();
+        var teamName=$("#teamName").val();
+        if(proName.length==0||proIntro.length==0||priName==0||priContact.length==0||teachName.length==0||teachContact.length==0||teamName.length==0){
+            alert("请输入所有信息！");
+        }
+        else{
+            $("#member").css("display", "block");
+            $("#basic").css("display", "none");
+            $("#upload").css("display", "none");
+            $("#second .beGrey").removeClass("beGrey");
+        }
 }
 
 /*成员列表抓取数据*/
@@ -125,11 +142,11 @@ function secondStep(){
         });
 }
 
-/*function canclethis(){
-     var r = confirm("确定要取消此次报名？（若确定，则将丢失所有信息）");
+function jieshu(){
+     var r = confirm("确定要结束此次报名？");
     if (r == true) 
-        window.location.href("index.html");
-}*/
+        window.location.href="index.html";
+}
 $.post("php/gameController.php",{"key":"getGameName"},function(data){
     data=eval("("+data+")");
     console.log(data);

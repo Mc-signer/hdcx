@@ -1,3 +1,66 @@
 <?php
-date_default_timezone_set('Asia/Shanghai');
-echo date("Y-m-d H:i:s");
+require_once('config/init.php');
+$_SESSION['gameId']=1;
+$_POST=array(
+	"teamName"=>"1",
+	"proName"=>"1",
+	"proIntro"=>"1",
+	"priName"=>"1",
+	"priContact"=>"1",
+	"teachName"=>"1",
+	"teachContact"=>"1",
+	"members"=>array(
+	array(
+		"name"=>"1",
+		"gender"=>"1",
+		"contact"=>"1",
+		"insititute"=>"1",
+		"class"=>"1",
+		"stunum"=>"1",
+		"idcard"=>"1",
+		"email"=>"1",
+		"teamId"=>"1"
+		),
+	array(
+		"name"=>"1",
+		"gender"=>"1",
+		"contact"=>"1",
+		"insititute"=>"1",
+		"class"=>"1",
+		"stunum"=>"1",
+		"idcard"=>"1",
+		"email"=>"1",
+		"teamId"=>"1"
+		)
+	)
+	);
+$team=new Team($_SESSION['gameId'],$_POST['teamName'],$_POST['proName'],$_POST['proIntro'],$_POST['priName'],$_POST['priContact'],$_POST['teachName'],$_POST['teachContact']);
+		$result=$team->check();
+		if($result!=1){
+			$return=array(
+				"success"=>false,
+				"notice"=>$result
+				);
+		}
+		$result=$team->checkMembers($_POST['members']);
+		if($result!=1){
+			$return=array(
+				"success"=>false,
+				"notice"=>$result
+				);
+		}
+		$team->addTeam();
+		$teamId=$team->getId();
+		foreach ($_POST['members'] as $key => $value) {
+			$member=new Member($value['name'],$value['gender'],$value['contact'],$value['insititute'],$value['class'],$value['stunum'],$value['idcard'],$value['email'],$teamId);
+			$member->addMember();
+		}
+		$_SESSION['teamId']=$teamId;
+		if(!is_dir(FILEPATH.$_SESSION['teamId'])){
+			mkdir(FILEPATH.$_SESSION['teamId'],0777,true);
+		}
+		$return=array(
+			"success"=>true,
+			"notice"=>"报名成功！"
+			);
+echo print_r($return);

@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/admin-match.css">
     <link rel="stylesheet" type="text/css" href="css/admin-output.css">
+    <link rel="stylesheet" type="text/css" href="css/user-output.css">
     <script src="js/jquery-1.9.1.min.js"></script>
     <style>
     /* Hide Angular JS elements before initializing */
@@ -42,6 +43,7 @@
 
 <body>
 <div style="display: none;" id="teamId"></div>
+<div style="display: none;" id="gameId"></div>
     <img src="img/indexBackground.png" class="index-background col-md-12">
     <div class="index-top col-md-12">
         <img src="img/indexTitle.png" class="col-md-5">
@@ -80,53 +82,73 @@
                 <div class="col-md-12 basic-title">
                     <div class="col-md-2 basic-title-left">基本信息</div>
                     <div class="col-md-2 basic-title-right">
-                        
+                        <div class="col-md-2 basic-title-right">
+                        <button type="button" class="btn btn-success" onclick="submitMessage();">点击提交</button>
+                    </div>
                     </div>
                 </div>
                 <!-- 内容 -->
-                <div class="col-md-9 col-md-offset-1 basic-content">
+                <div class="col-md-11 col-md-offset-1 basic-content">
                     <form class="col-md-12 form-horizontal" role="form">
                         <div class="form-group">
-                            <label for="proName" class="col-md-3 control-label">比赛课题：</label>
+                            <label for="proName" class="col-md-2 control-label">比赛课题：</label>
                             <div class="col-md-9">
-                                <!--input type="text" class="form-control input-none" id="proName" value="蚂蚁聚宝" readonly="readonly" style="     cursor: default;"--><!--显示改为用div--><div class="form-control input-none" id="proName" style="cursor:default;"></div>
+                                <input type="text" class="form-control input-none" id="proName" value="蚂蚁聚宝" ><!--显示改为用div--><!--<div class="form-control input-none" id="proName" style="cursor:default;"></div>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="proIntro" class="col-md-2 control-label">课题简介：</label>
+                            <textarea rows="4" type="text" class="col-md-9 textarea textarea-control" id="proIntro" style="resize:none;" placeholder="请填写课题简介"></textarea><p class="textCount" style="float:right;margin-top:-30px;margin-right:10px;color:#999999;display:none;"></p>
+                            <!-- <div class="col-md-9 textarea " id="proIntro" style="padding-left:27px;cursor:default;color:#555;">-->
+                                <!-- <textarea class="form-control" id="firstname" rows="" style="resize: none;overflow:scroll;overflow-y:hidden;;overflow-x:hidden" onfocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+"px";},20);" onblur="clearInterval(this.clock);"></textarea> 
+                            </div>-->
+                        </div>
+                        <div class="form-group">
+                            <label for="priName" class="col-md-2 control-label">负责人姓名：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control input-none" id="priName" value=""><!--显示改为用div--><!--<div class="form-control input-none" id="priName" style="cursor:default;"</div>-->
+                            </div>
+                            <label for="priContact" class="col-md-2 control-label">负责人电话：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control input-none" id="priContact" value="" ><!--显示改为用div--><!--<div class="form-control input-none" id="priContact" style="cursor:default;"></div>-->
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="proIntro" class="col-md-3 control-label">课题简介：</label>
-                            <div class="col-md-9 textarea " id="proIntro" style="padding-left:27px;cursor:default;color:#555;">
-                                <!-- <textarea class="form-control" id="firstname" rows="" style="resize: none;overflow:scroll;overflow-y:hidden;;overflow-x:hidden" onfocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+"px";},20);" onblur="clearInterval(this.clock);"></textarea> -->
+                            <label for="teachName" class="col-md-2 control-label">指导教师姓名：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control input-none" id="teachName" value=""><!--显示改为用div--><!--<div class="form-control input-none" id="teachName" style="cursor:default;"></div>-->
+                            </div>
+                            <label for="teachContact" class="col-md-2 control-label">指导教师电话：</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control input-none" id="teachContact" value=""><!--显示改为用div--><!--<div class="form-control input-none" id="teachContact" style="cursor:default;"></div>-->
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="priName" class="col-md-3 control-label">负责人姓名：</label>
+                            <label for="teamName" class="col-md-2 control-label">团队名称：</label>
                             <div class="col-md-3">
-                                <!--input type="text" class="form-control input-none" id="priName" value="" readonly="readonly" style="     cursor: default;"><!--显示改为用div--><div class="form-control input-none" id="priName" style="cursor:default;"--></div>
+                                <input type="text" class="form-control input-none" id="teamName" value=""><!--显示改为用div--><!--<div class="form-control input-none" id="teamName" style="cursor:default;"></div>-->
                             </div>
-                            <label for="priContact" class="col-md-3 control-label">负责人联系方式：</label>
-                            <div class="col-md-3">
-                                <!--input type="text" class="form-control input-none" id="priContact" value="" readonly="readonly" style="     cursor: default;"--><!--显示改为用div--><div class="form-control input-none" id="priContact" style="cursor:default;"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="teachName" class="col-md-3 control-label">指导教师姓名：</label>
-                            <div class="col-md-3">
-                                <!--input type="text" class="form-control input-none" id="teachName" value="" readonly="readonly" style="     cursor: default;"--><!--显示改为用div--><div class="form-control input-none" id="teachName" style="cursor:default;"></div>
-                            </div>
-                            <label for="teachContact" class="col-md-3 control-label">指导教师联系方式：</label>
-                            <div class="col-md-3">
-                                <!--input type="text" class="form-control input-none" id="teachContact" value="" readonly="readonly" style="     cursor: default;"--><!--显示改为用div--><div class="form-control input-none" id="teachContact" style="cursor:default;"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="teamName" class="col-md-3 control-label">团队名称：</label>
-                            <div class="col-md-3">
-                                <!--input type="text" class="form-control input-none" id="teamName" value="" readonly="readonly" style="     cursor: default;"--><!--显示改为用div--><div class="form-control input-none" id="teamName" style="cursor:default;"></div>
-                            </div>
-                             <label for="award" class="col-md-3 control-label">获奖情况：</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control input-none" id="
-                                award" value="" readonly="readonly" style="     cursor: default;" placeholder="暂无获奖情况">
+                             <label for="award" class="col-md-2 control-label">获奖情况：</label>
+                              <div class="col-md-5 form-group awardClass" style="padding: 0;">
+                                <label for="award" class="col-md-6 control-label">省部（区域）级：</label>
+                                <select class="form-control col-md-5" style="width:40%;margin-bottom:15px;margin-left: 15px;" id="award1" > 
+                                    <option>无</option> 
+                                    <option>特等奖</option>
+                                    <option>一等奖</option> 
+                                    <option>二等奖</option>
+                                    <option>三等奖</option> 
+                                    <option>优秀奖</option> 
+                                </select>   
+                                <label for="award" class="col-md-6 control-label ">国家级：</label>
+                                <select class="form-control col-md-5" style="width:40%;margin-left: 15px;" id="award2"> 
+                                    <option>无</option> 
+                                    <option>特等奖</option>
+                                    <option>一等奖</option> 
+                                    <option>二等奖</option>
+                                    <option>三等奖</option> 
+                                    <option>优秀奖</option> 
+                                </select>            
                             </div>
                         </div>
                     </form>
@@ -143,20 +165,21 @@
                     <table class="table">
                         <thead>
                             <tr style="">
-                                <th style="width:2%;"></th>
-                                <th style="width:10%;">姓名</th>
-                                <th style="width:5%;">性别</th>
-                                <th style="width:12%;">联系方式</th>
-                                <th style="width:10%;">院系</th>
-                                <th style="width:10%;">班级</th>
-                                <th style="width:11%;">学号</th>
-                                <th style="width:18%;">身份证号</th>
-                                <th style="width:22%;">电子邮箱</th>
+                               <th style="width:2%; "></th>
+                                <th style="width:10%; ">姓名</th>
+                                <th style="width:5%; ">性别</th>
+                                <th style="width:12%; ">联系方式</th>
+                                <th style="width:10%; ">院系</th>
+                                <th style="width:10%; ">班级</th>
+                                <th style="width:11%; ">学号</th>
+                                <th style="width:18%; ">身份证号</th>
+                                <th style="width:22%; ">电子邮箱</th>
                             </tr>
                         </thead>
                         <tbody id="members">
                         </tbody>
-                    </table>
+                         
+                    </table><button type="button " class="btn btn-info col-md-offset-5 col-md-1 registration-add " onclick="addMember(); "><img src="img\加号.png "></button>
                 </div>
             </div>
             <!-- 附件 -->
@@ -176,9 +199,9 @@
                             </noscript>
                             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
                             <!-- 按钮删除 -->
-                            <!-- <div class="row fileupload-buttonbar">
+                             <div class="row fileupload-buttonbar">
                                 <div class="col-lg-7">
-                                    The fileinput-button span is used to style the file input field as button
+                                    <!-- The fileinput-button span is used to style the file input field as button -->
                                     <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
                                                 <i class="glyphicon glyphicon-plus"></i>
                                                 <span>添加文件</span>
@@ -193,19 +216,19 @@
                                         <i class="glyphicon glyphicon-ban-circle"></i>
                                         <span>取消上传</span>
                                     </button>
-                                    The global file processing state
+                                  <!--   The global file processing state -->
                                     <span class="fileupload-process"></span>
                                 </div>
-                                The global progress state
+                                <!-- The global progress state -->
                                 <div class="col-lg-5 fade" data-ng-class="{in: active()}">
-                                    The global progress bar
+                                   <!--  The global progress bar -->
                                     <div class="progress progress-striped active" data-file-upload-progress="progress()">
                                         <div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div>
                                     </div>
-                                    The extended global progress state
+                                 <!--    The extended global progress state -->
                                     <div class="progress-extended">&nbsp;</div>
                                 </div>
-                            </div> -->
+                            </div> 
                             <!-- The table listing the files available for upload/download -->
                             <div class="col-md-8">
                                 <table class="table table-striped files ng-cloak">

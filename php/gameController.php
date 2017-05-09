@@ -36,14 +36,21 @@ switch($_POST['key']){
 	case 'edit':
 		$game=new Game();
 		$game->setGame($_POST['id']);
+		if(!$game->isTheAdmin($_SESSION['adminId'])){
+			$return=array(
+				"success"=>false,
+				"notice"=>"您没有权限进行修改"
+				);
+			break;
+		}
 		if($game->editGame($_POST['name'],$_POST['intro'],$_POST['date'],$_POST['deadline'],$_POST['sponsor'])){
 			$return=array(
-				"success"=>"true",
+				"success"=>true,
 				"notice"=>"修改成功"
 				);
 		}else {
 			$return=array(
-				"success"=>"false",
+				"success"=>false,
 				"notice"=>"修改失败，服务器错误"
 				);
 		}
@@ -57,7 +64,14 @@ switch($_POST['key']){
 			break;
 		}
 		$game=new Game();
-		$game->setId($_POST['id']);
+		$game->setGame($_POST['id']);
+		if(!$game->isTheAdmin($_SESSION['adminId'])){
+			$return=array(
+				"success"=>false,
+				"notice"=>"您没有权限进行修改"
+				);
+			break;
+		}
 		if($game->delGame()){
 			$return=array(
 				"success"=>true,
@@ -76,9 +90,10 @@ switch($_POST['key']){
 				"success"=>false,
 				"notice"=>"非法请求！"
 				);
+		}else {
+			$game=new Game();
+			$return=$game->getUnRegGames($_SESSION['userId']);
 		}
-		$game=new Game();
-		$return=$game->getUnRegGames($_SESSION['userId']);
 		break;
 	case 'getRegGames'://用户界面已经报名比赛
 		if(!isset($_SESSION['userId'])){
@@ -86,9 +101,10 @@ switch($_POST['key']){
 				"success"=>false,
 				"notice"=>"非法请求！"
 				);
-		}
-		$game=new Game();
+		}else{
+			$game=new Game();
 		$return=$game->getRegGames($_SESSION['userId']);
+		}		
 		break;	
 	case 'getGameName':
 		$game=new Game();
@@ -98,6 +114,10 @@ switch($_POST['key']){
 			"name"=>$gameInfo['name']
 			);
 		break;
+	case 'getGames':
+		$game=new Game();
+		$return=$game->getGames();//正在进行的比赛
+		break;	
 	case 'getOverGames':
 		$game=new Game();
 		$return=$game->getOverGames($_POST['num']);

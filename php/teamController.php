@@ -34,7 +34,7 @@ switch ($_POST['key']) {
 			$member->addMember();
 		}
 		$_SESSION['teamId']=$teamId;
-		if(!file_exists(FILEPATH.$_SESSION['teamId'])){
+		if(!is_dir(FILEPATH.$_SESSION['teamId'])){
 			mkdir(FILEPATH.$_SESSION['teamId'],0777,true);
 		}
 		$return=array(
@@ -68,6 +68,7 @@ switch ($_POST['key']) {
 			$member=new Member($value['name'],$value['gender'],$value['contact'],$value['insititute'],$value['class'],$value['stunum'],$value['idcard'],$value['email'],$teamId);
 			$member->addMember();
 		}
+		$result=$team->setAward($_POST['award1'],$_POST['award2']);
 		$return=array(
 			"success"=>true,
 			"notice"=>"修改成功！"
@@ -92,21 +93,6 @@ switch ($_POST['key']) {
 	case 'getTeam':
 		$team=new Team();
 		$return=$team->getTeam($_SESSION['teamId']);
-		break;
-	case 'setAward':
-		$team=new Team();
-		$result=$team->setAward($_POST['award']);
-		if($result){
-			$return=array(
-			"success"=>true,
-			"notice"=>"修改成功！"
-			);
-		}else {
-			$return=array(
-			"success"=>false,
-			"notice"=>"服务器错误！"
-			);
-		}
 		break;
 	case 'deleteFile':
 		$team=new Team();

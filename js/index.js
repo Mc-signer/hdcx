@@ -4,12 +4,13 @@ $.post("php/userController.php", { 'key': 'isLogin' }, function(data) {
         window.location.href = "login.html";
     } else { //登陆成功
         //修改登陆名
-
-        $(".index-user-name").find("a:last").html(data.userName);
+        console.log(data);
+        $(".index-user-name").find("a:last").html(data.userXingming);
         $("#name").val(data.userName);
         $("#contact").val(data.userContact);
         $("#email").val(data.userEmail);
         $("#userId").html(data.userId);
+        $("#xingming").val(data.userXingming);
     }
 });
 

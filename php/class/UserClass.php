@@ -5,11 +5,13 @@
 class User{
 	private $id;
 	protected $name;
+	protected $xingming;
 	protected $password;
 	protected $contact;
 	protected $email;
-	function __construct($name='',$password='',$contact='',$email='',$id=''){
+	function __construct($name='',$password='',$xingming='',$contact='',$email='',$id=''){
 		$this->name=$name;
+		$this->xingming=$xingming;
 		$this->password=sha1($password);
 		$this->contact=$contact;
 		$this->email=$email;
@@ -23,6 +25,7 @@ class User{
 		$row=$result->fetch_array(MYSQLI_ASSOC);
 		$this->id=$row['id'];
 		$this->name=$row['name'];
+		$this->xingming=$row['xingming'];
 		$this->password=$row['password'];
 		$this->contact=$row['contact'];
 		$this->email=$row['email'];
@@ -52,41 +55,29 @@ class User{
 		}
 		$_SESSION['userId']=$row['id'];
 		$_SESSION['userName']=$row['name'];
+		$_SESSION['userXingming']=$row['xingming'];
 		$_SESSION['contact']=$row['contact'];
 		$_SESSION['email']=$row['email'];
 		$mysqli->close();
 		return 1;
 	}
-	function checkEdit($name,$contact,$email){
-		//检查用户是否存在
-		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
-		$mysqli->query("set names utf8");
-		$result=$mysqli->query("select * from users where name='$name'");
-		if(!$result->num_rows){
-			$mysqli->close();
-			return "该用户不存在";
-		}
-		$mysqli->close();
-		//检查联系方式与邮箱是否符合规定
-		if(!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/",$email)){
-			return "邮箱格式不正确，请重试";
-		}
+	function checkEdit($contact){
+		//检查联系方式是否符合规定
 		if(!preg_match("/^[0-9]{11}$/",$contact)){
 			return "联系方式格式不正确，请填写您的手机号";
 		}
 		return 1;
 	}
-	function editUser($name,$contact,$email){
+	function editUser($name,$contact){
 		$mysqli=new mysqli(DB_HOST,DB_USER,DB_PW,DB_NAME);
 		$mysqli->query("set names utf8");
-		$result=$mysqli->query("update users set contact='$contact',email='$email' where name='$name'");
+		$result=$mysqli->query("update users set contact='$contact' where name='$name'");
 		if(!$result){
 			header("http://".PATH."error.html");
 			$mysqli->close();
 			exit();
 		}
 		$_SESSION['contact']=$contact;
-		$_SESSION['email']=$email;
 		$mysqli->close();
 		return true;
 	}
@@ -126,6 +117,7 @@ class User{
 			$row=$result->fetch_array(MYSQLI_ASSOC);
 			$this->id=$row['id'];
 			$this->name=$row['name'];
+			$this->xingming=$row['xingming'];
 			$this->contact=$row['contact'];
 			$this->email=$row['email'];
 		}else{
@@ -137,6 +129,7 @@ class User{
 			$row=$result->fetch_array(MYSQLI_ASSOC);
 			$this->id=$row['id'];
 			$this->name=$row['name'];
+			$this->xingming=$row['xingming'];
 			$this->contact=$row['contact'];
 			$this->email=$row['email'];
 		}
